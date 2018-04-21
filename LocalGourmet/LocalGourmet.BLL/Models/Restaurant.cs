@@ -16,5 +16,7 @@ namespace LocalGourmet.BLL.Models
         public string PhoneNumber { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public string WebAddress { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public List<Review> Reviews { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string Type { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string Hours { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
     }
 }

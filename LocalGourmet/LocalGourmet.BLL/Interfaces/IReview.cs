@@ -8,5 +8,8 @@ namespace LocalGourmet.BLL.Interfaces
 {
     interface IReview
     {
+        // Calculates and returns the overall review rating.
+        float GetRating(); 
+        string Comment { get; set; }
     }
 }
