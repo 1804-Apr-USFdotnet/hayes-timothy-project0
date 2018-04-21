@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LocalGourmet.BLL
+namespace LocalGourmet.BLL.Interfaces
 {
-    public class Class1
+    interface IReview
     {
     }
 }
