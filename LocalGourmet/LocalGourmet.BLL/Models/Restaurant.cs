@@ -7,20 +7,16 @@ using System.Threading.Tasks;
 
 namespace LocalGourmet.BLL.Models
 {
-    public class Restaurant : IRestaurant
+    class Restaurant : IRestaurant
     {
-        public string Name { get; set; }
-        public string Location { get; set; }
-        public string Cuisine { get; set; }
-        public string PhoneNumber { get; set; }
-        public string WebAddress { get; set; }
-        public List<Review> Reviews { get; set; }
-        public string Type { get; set; }
-        public string Hours { get; set; }
-
-        public float GetAvgRating()
-        {
-            return 0;
-        }
+        public string Name { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string Location { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string Cuisine { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public float AvgRating { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string PhoneNumber { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string WebAddress { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public List<Review> Reviews { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string Type { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string Hours { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
     }
 }

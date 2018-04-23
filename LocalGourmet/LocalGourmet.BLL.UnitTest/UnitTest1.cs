@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace LocalGourmet.BLL.UnitTest
 {
     [TestClass]
-    public class ReviewUnitTest
+    public class UnitTest1
     {
         [TestMethod]
         public void TestMethod1()
