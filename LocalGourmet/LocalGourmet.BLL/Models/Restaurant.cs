@@ -1,5 +1,4 @@
 ﻿using LocalGourmet.BLL.Interfaces;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,13 +21,6 @@ namespace LocalGourmet.BLL.Models
         public float GetAvgRating()
         {
             return 0;
-        }
-
-        public override string ToString()
-        {
-            return $"{Name}, {Location}, {Cuisine}, {PhoneNumber}, " +
-                $"{WebAddress}, {Reviews.Count} Reviews, {Type}, {Hours}, " +
-                $"AvgRating: {GetAvgRating()}.";
         }
     }
 }
