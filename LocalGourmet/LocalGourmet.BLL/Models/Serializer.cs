@@ -11,7 +11,8 @@ namespace LocalGourmet.BLL.Models
 {
     public static class Serializer
     {
-        public static string Serialize(Restaurant r)
+        // Serialize obj to JSON string and return it.
+        public static string Serialize<T>(T obj)
         {
             string jsonStr = "";
 
@@ -19,9 +20,9 @@ namespace LocalGourmet.BLL.Models
             try
             {
                 // Instantiate DataContractJsonSerializer that will serialize to JSON
-                DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(Restaurant));
+                DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(T));
                 // Uses WriteObject method to serialize the data members to the stream
-                ser.WriteObject(ms, r);
+                ser.WriteObject(ms, obj);
                 ms.Position = 0; // sets position of memory stream
                 StreamReader sr = new StreamReader(ms);
                 jsonStr = sr.ReadToEnd();
@@ -36,6 +37,13 @@ namespace LocalGourmet.BLL.Models
             }
 
             return jsonStr;
+        }
+
+        // Deserialize JSON string and return object.
+        public static T Deserialize<T>(string jsonStr)
+        {
+            T obj = default(T);
+            return obj;
         }
     }
 }

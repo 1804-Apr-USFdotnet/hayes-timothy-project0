@@ -24,8 +24,6 @@ namespace LocalGourmet.BLL.Models
         [DataMember]
         public string Cuisine { get; set; }
         [DataMember]
-        public float AvgRating { get; set; }
-        [DataMember]
         public string PhoneNumber { get; set; }
         [DataMember]
         public string WebAddress { get; set; }
