@@ -43,6 +43,25 @@ namespace LocalGourmet.BLL.Models
         public static T Deserialize<T>(string jsonStr)
         {
             T obj = default(T);
+            MemoryStream ms = new MemoryStream();
+            try
+            {
+                // Instantiate DataContractJsonSerializer that will serialize to JSON
+                DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(T));
+                StreamWriter writer = new StreamWriter(ms);
+                writer.Write(jsonStr);
+                writer.Flush();
+                obj = (T)ser.ReadObject(ms); // Deserializes JSON data to a  Object
+                ms.Position = 0;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                ms.Close();
+            }
             return obj;
         }
     }

@@ -38,5 +38,12 @@ namespace LocalGourmet.BLL.Models
         {
             throw new NotImplementedException();
         }
+
+        public override string ToString()
+        {
+            return $"{Name}, {Location}, {Cuisine}, {PhoneNumber}, " +
+                $"{WebAddress}, {Reviews.Count} Reviews, {Type}, {Hours}, " +
+                $"AvgRating: {GetAvgRating()}.";
+        }
     }
 }

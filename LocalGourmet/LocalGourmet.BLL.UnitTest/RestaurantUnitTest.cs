@@ -49,6 +49,12 @@ namespace LocalGourmet.BLL.UnitTest
         [TestMethod]
         public void TestDeserialization()
         {
+            string jsonStr = System.IO.File.ReadAllText(@"C:\revature\" + 
+                @"hayes-timothy-project0\LocalGourmet\LocalGourmet.BLL\" +
+                @"Models\Restaurants.json");
+            List<Restaurant> rList = 
+                Serializer.Deserialize<List<Restaurant>>(jsonStr);
+            Assert.AreEqual("x", rList[0].ToString());
 
         }
     }
