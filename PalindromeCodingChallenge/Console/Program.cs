@@ -11,10 +11,7 @@ namespace ConsoleApp
     {
         static void Main(string[] args)
         {
-            //string caseInsensitive = "never Odd, or Even.";
-            //bool a1 = caseInsensitive.IsPalindrome();
-
-            string caseInsensitive = "";
+            string caseInsensitive = "never Odd, or Even.";
             bool a1 = caseInsensitive.IsPalindrome();
             Console.WriteLine(a1);
         }
