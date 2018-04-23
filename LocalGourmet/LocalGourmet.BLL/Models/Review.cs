@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LocalGourmet.BLL.Models
 {
-    class Review : IReview
+    public class Review : IReview
     {
         // Individual rating components
         int FoodRating { get; set; }
