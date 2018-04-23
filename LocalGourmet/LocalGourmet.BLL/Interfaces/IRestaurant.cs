@@ -13,10 +13,11 @@ namespace LocalGourmet.BLL.Interfaces
         string Location { get; set; }
         string Cuisine { get; set; } // Examples: Italian, French, Indian, ...
         string Type { get; set; } // Examples: Bakery, Pizzeria, Diner, ... 
-        float AvgRating  { get; set; }
         string Hours { get; set; } // Operating Hours
         string PhoneNumber { get; set; }
         string WebAddress { get; set; }
         List<Review> Reviews { get; set; }
+
+        float GetAvgRating();
     }
 }

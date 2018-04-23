@@ -23,5 +23,6 @@ namespace LocalGourmet.BLL.Models
         }
 
         public string Comment { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string ReviewerName { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
     }
 }
