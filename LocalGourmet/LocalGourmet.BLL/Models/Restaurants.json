@@ -1,0 +1,32 @@
+﻿[
+  {
+    "Cuisine": "American",
+    "Hours": "Mon-Sat 8am-10pm, Sun 9am-9pm",
+    "Location": "14961 N Florida Ave, Suite 14961, Florida Crossing Shopping Cntr, Tampa, FL 33613, USA",
+    "Name": "Subway",
+    "PhoneNumber": "(813) 963-2670",
+    "Reviews": [],
+    "Type": "Fast Food",
+    "WebAddress": "www.subway.com"
+  },
+  {
+    "Cuisine": "Italian",
+    "Hours": "Mon-Sat 5pm-10:30pm, Sun 4pm-10pm",
+    "Location": "109 Gulf Blvd, Indian Rocks Beach, FL 33785, USA",
+    "Name": "Villa Gallace",
+    "PhoneNumber": "(727) 596-0200",
+    "Reviews": [],
+    "Type": "Fine Restaurant",
+    "WebAddress": "www.villagallace.com"
+  },
+  {
+    "Cuisine": "American",
+    "Hours": "Mon-Sun 12am-11:30pm",
+    "Location": "7410 N Nebraska Ave, Tampa, FL 33604, USA",
+    "Name": "Three Coins Diner",
+    "PhoneNumber": "(813) 239-1256",
+    "Reviews": [],
+    "Type": "Diner",
+    "WebAddress": "threecoinsdiner.net"
+  }
+]
