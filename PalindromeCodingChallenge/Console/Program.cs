@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Console
+namespace ConsoleApp
 {
     class Program
     {
@@ -14,8 +14,9 @@ namespace Console
             //string caseInsensitive = "never Odd, or Even.";
             //bool a1 = caseInsensitive.IsPalindrome();
 
-            string caseInsensitive = "121";
+            string caseInsensitive = "";
             bool a1 = caseInsensitive.IsPalindrome();
+            Console.WriteLine(a1);
         }
     }
 }

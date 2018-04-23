@@ -17,10 +17,10 @@ namespace PalindromeCodingChallengeUnitTest
             string punctuation = "never Odd, or Even.";
             string numbers = "121";
             string singleChar = "A";
+            string emptyString = "";
 
             // Non-Palindromes
             string nullStr = null;
-            string emptyString = "";
             string failed = "1A2";
 
             // Act
@@ -40,7 +40,7 @@ namespace PalindromeCodingChallengeUnitTest
             bool e5 = false;
 
             bool a6 = emptyString.IsPalindrome();
-            bool e6 = false;
+            bool e6 = true;
 
             bool a7 = failed.IsPalindrome();
             bool e7 = false;

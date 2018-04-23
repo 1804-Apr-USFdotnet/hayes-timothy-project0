@@ -15,10 +15,6 @@ namespace PalindromeCodingChallenge
             {
                 return false;
             }
-            else if(str == "")
-            {
-                return false;
-            }
             else
             {
                 // Extract only alphanumeric characters -- set all to upcase
@@ -35,14 +31,6 @@ namespace PalindromeCodingChallenge
                 }
 
                 // Test that alphanumeric upcase string is a palindrome
-                
-                // If length is odd, make it even by duplicating middle char.
-                if(alphaNumStr.Length % 2 == 1)
-                {
-                    alphaNumStr = alphaNumStr.Insert(alphaNumStr.Length / 2, "" + alphaNumStr[alphaNumStr.Length / 2]);
-                }
-
-                // Test matches on even-length string
                 for(int i = 0; i < alphaNumStr.Length / 2; i++)
                 {
                     Console.WriteLine($"compare {alphaNumStr[i]} with {alphaNumStr[alphaNumStr.Length - 1 - i]}");
