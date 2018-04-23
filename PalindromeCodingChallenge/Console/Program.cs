@@ -11,7 +11,10 @@ namespace Console
     {
         static void Main(string[] args)
         {
-            string caseInsensitive = "Racecar";
+            //string caseInsensitive = "never Odd, or Even.";
+            //bool a1 = caseInsensitive.IsPalindrome();
+
+            string caseInsensitive = "121";
             bool a1 = caseInsensitive.IsPalindrome();
         }
     }
