@@ -33,7 +33,6 @@ namespace PalindromeCodingChallenge
                 // Test that alphanumeric upcase string is a palindrome
                 for(int i = 0; i < alphaNumStr.Length / 2; i++)
                 {
-                    Console.WriteLine($"compare {alphaNumStr[i]} with {alphaNumStr[alphaNumStr.Length - 1 - i]}");
                     if(alphaNumStr[i] != alphaNumStr[alphaNumStr.Length - 1 - i])
                     {
                         return false;
