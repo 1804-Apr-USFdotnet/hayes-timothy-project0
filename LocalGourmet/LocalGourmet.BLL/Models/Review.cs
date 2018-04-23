@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LocalGourmet.BLL.Models
 {
-    class Review : IReview
+    public class Review : IReview
     {
         // Individual rating components
         int FoodRating { get; set; }
@@ -23,5 +23,6 @@ namespace LocalGourmet.BLL.Models
         }
 
         public string Comment { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string ReviewerName { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
     }
 }

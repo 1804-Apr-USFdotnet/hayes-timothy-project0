@@ -13,7 +13,11 @@ namespace ConsoleApp
         {
             string caseInsensitive = "never Odd, or Even.";
             bool a1 = caseInsensitive.IsPalindrome();
-            Console.WriteLine(a1);
+            Console.WriteLine($"{caseInsensitive} palindrome? :: {a1}");
+
+            string x = "@ABA";
+            bool a2 = x.IsPalindrome();
+            Console.WriteLine($"{x} palindrome? :: {a2}");
         }
     }
 }

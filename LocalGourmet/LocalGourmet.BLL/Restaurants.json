@@ -1,0 +1,22 @@
+﻿[
+  {
+    "Name": "Subway",
+    "Location": "12096 Anderson Rd, Tampa, FL 33625, USA",
+    "Cuisine": "American",
+    "PhoneNumber": "813-963-0597",
+    "WebAddress": "http://www.subway.com/en-us",
+    "Reviews": {},
+    "Type": "Fast Food",
+    "Hours": "9am-10:30pm SUN, 7am-10:30pm MON-FRI, 8am-10:30pm SAT"
+  },
+  {
+    "Name": "Donatello Italian Restaurant",
+    "Location": "232 N Dale Mabry Hwy, Tampa, FL 33609, USA",
+    "Cuisine": "Italian",
+    "PhoneNumber": "813-875-6660",
+    "WebAddress": "http://www.donatellotampa.com/",
+    "Reviews": {},
+    "Type": "Four-Star Restaurant",
+    "Hours": "5:30pm-10pm SUN-THURSDAY, 5:30pm-11pm FRI-SAT"
+  }
+]
