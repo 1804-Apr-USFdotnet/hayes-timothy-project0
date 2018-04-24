@@ -24,6 +24,7 @@
       }
     ],
     "Type": "Fast Food",
+    "Specialty": "Subs",
     "WebAddress": "www.subway.com"
   },
   {
@@ -34,6 +35,7 @@
     "PhoneNumber": "(727) 596-0200",
     "Reviews": [],
     "Type": "Fine Restaurant",
+    "Specialty": "Pasta",
     "WebAddress": "www.villagallace.com"
   },
   {
@@ -54,6 +56,7 @@
     "PhoneNumber": "(813) 871-6953",
     "Reviews": [],
     "Type": "Seafood",
+    "Specialty": "Peruvian Meat & Vegetable Stews",
     "WebAddress": "happyfishtampa.com"
   },
   {
@@ -64,6 +67,7 @@
     "PhoneNumber": "(813) 254-5374",
     "Reviews": [],
     "Type": "Dessert",
+    "Specialty": "Doughnuts",
     "WebAddress": "minidoughnutfactory.com"
   }
 ] 

@@ -31,6 +31,7 @@
         "ServiceRating": 1
       }
     ],
+    "Specialty": "Subs",
     "Type": "Fast Food",
     "WebAddress": "www.subway.com"
   },
@@ -41,6 +42,7 @@
     "Name": "Villa Gallace",
     "PhoneNumber": "(727) 596-0200",
     "Reviews": [],
+    "Specialty": null,
     "Type": "Fine Restaurant",
     "WebAddress": "www.villagallace.com"
   },
@@ -51,7 +53,8 @@
     "Name": "Three Coins Diner",
     "PhoneNumber": "(813) 239-1256",
     "Reviews": [],
+    "Specialty": null,
     "Type": "Diner",
     "WebAddress": "threecoinsdiner.net"
   }
-] 
+]

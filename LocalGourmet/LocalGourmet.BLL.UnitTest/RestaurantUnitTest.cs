@@ -20,6 +20,7 @@ namespace LocalGourmet.BLL.UnitTest
             r.PhoneNumber = "(813) 963-2670";
             r.WebAddress = "www.subway.com";
             r.Type = "Fast Food";
+            r.Specialty = "Subs";
             r.Hours = "Mon-Sat 8am-10pm, Sun 9am-9pm";
             Review rev1 = new Review("James", "Great!", 5);
             Review rev2 = new Review("Bob", "Pretty good", 3);
@@ -72,6 +73,7 @@ namespace LocalGourmet.BLL.UnitTest
             r.PhoneNumber = "(813) 963-2670";
             r.WebAddress = "www.subway.com";
             r.Type = "Fast Food";
+            r.Specialty = "Subs";
             r.Hours = "Mon-Sat 8am-10pm, Sun 9am-9pm";
             Review rev1 = new Review("James", "Great!", 5);
             Review rev2 = new Review("Bob", "Pretty good", 3);
