@@ -16,6 +16,12 @@ namespace LocalGourmet.BLL.Models
         {
             ReviewerName = name;
             Comment = comment;
+
+            int defaultRating = 3;
+            FoodRating = defaultRating;
+            ServiceRating = defaultRating;
+            AtmosphereRating = defaultRating;
+            PriceRating = defaultRating;
         }
 
         // Review constructor that assigns the same rating to all
@@ -31,6 +37,28 @@ namespace LocalGourmet.BLL.Models
             ServiceRating = simpleRating;
             AtmosphereRating = simpleRating;
             PriceRating = simpleRating;
+        }
+
+        public Review(string name, string comment, int foodRat, 
+            int serviceRat, int atmosphereRat, int priceRat)
+        {
+            ReviewerName = name;
+            Comment = comment;
+
+            // Enforce a rating between 0 and 5 inclusive
+            foodRat = 
+                foodRat < 0 ? 0 : (foodRat > 5 ? 5 : foodRat);
+            serviceRat = 
+                serviceRat < 0 ? 0 : (serviceRat > 5 ? 5 : serviceRat);
+            atmosphereRat = 
+                atmosphereRat < 0 ? 0 : (atmosphereRat > 5 ? 5 : atmosphereRat);
+            priceRat = 
+                priceRat < 0 ? 0 : (priceRat > 5 ? 5 : priceRat);
+
+            FoodRating = foodRat;
+            ServiceRating = serviceRat;
+            AtmosphereRating = atmosphereRat;
+            PriceRating = priceRat;
         }
 
         // Individual rating components
