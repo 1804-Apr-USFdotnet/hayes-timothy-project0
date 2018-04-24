@@ -45,5 +45,25 @@
     "Reviews": [],
     "Type": "Diner",
     "WebAddress": "threecoinsdiner.net"
+  },
+  {
+    "Cuisine": "Peruvian",
+    "Hours": "Mon-Thu 11:30am-8pm, Fri-Sat 11:30am-9pm, Sun 12pm-8pm",
+    "Location": "4046 N Armenia Ave, Fiesta Plaza, Tampa, FL 33607, USA",
+    "Name": "Happy Fish",
+    "PhoneNumber": "(813) 871-6953",
+    "Reviews": [],
+    "Type": "Seafood",
+    "WebAddress": "happyfishtampa.com"
+  },
+  {
+    "Cuisine": "American",
+    "Hours": "Mon-Thu 6:30am-6:30pm, Fri 6:30am-10pm, Sat 7:30am-10pm, Sun 7:30am-6:30pm",
+    "Location": "2109 S Dale Mabry Hwy, Tampa, FL 33629, USA",
+    "Name": "Mini Doughnut Factory",
+    "PhoneNumber": "(813) 254-5374",
+    "Reviews": [],
+    "Type": "Dessert",
+    "WebAddress": "minidoughnutfactory.com"
   }
 ] 
