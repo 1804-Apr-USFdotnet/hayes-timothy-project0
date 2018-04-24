@@ -48,7 +48,7 @@ namespace LocalGourmet.BLL.UnitTest
 
             string expected = System.IO.File.ReadAllText(@"C:\revature\" + 
                 @"hayes-timothy-project0\LocalGourmet\LocalGourmet.BLL\" +
-                @"Models\RestaurantsForUnitTest.json");
+                @"Configs\RestaurantsForUnitTest.json");
 
             List<Restaurant> actual = new List<Restaurant>();
             actual.Add(r);
@@ -100,7 +100,7 @@ namespace LocalGourmet.BLL.UnitTest
 
             string jsonStr = System.IO.File.ReadAllText(@"C:\revature\" + 
                 @"hayes-timothy-project0\LocalGourmet\LocalGourmet.BLL\" +
-                @"Models\RestaurantsForUnitTest.json");
+                @"Configs\RestaurantsForUnitTest.json");
 
             List<Restaurant> expected = new List<Restaurant>();
             expected.Add(r);

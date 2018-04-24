@@ -15,7 +15,7 @@ namespace LocalGourmet.PL
             List<Restaurant> restaurants = new List<Restaurant>();
             string json = System.IO.File.ReadAllText(@"C:\revature\" + 
                 @"hayes-timothy-project0\LocalGourmet\LocalGourmet.BLL\" +
-                @"Models\Restaurants.json");
+                @"Configs\Restaurants.json");
             restaurants = Serializer.Deserialize<List<Restaurant>>(json);
 
             // Display Restaurants
