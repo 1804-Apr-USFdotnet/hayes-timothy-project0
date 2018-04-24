@@ -11,26 +11,19 @@ namespace LocalGourmet.PL
     {
         static void Main(string[] args)
         {
-            Restaurant r = new Restaurant();
-            r.Name = "Subway";
-            Restaurant r2 = new Restaurant();
-            r2.Name = "Burgers";
-            List<Restaurant> rList = new List<Restaurant>();
-            rList.Add(r);
-            rList.Add(r2);
-            Console.WriteLine(Serializer.Serialize(rList));
-            Console.WriteLine();
-
-            string jsonStr = System.IO.File.ReadAllText(@"C:\revature\" + 
+            // Deserialize Restaurants
+            List<Restaurant> restaurants = new List<Restaurant>();
+            string json = System.IO.File.ReadAllText(@"C:\revature\" + 
                 @"hayes-timothy-project0\LocalGourmet\LocalGourmet.BLL\" +
                 @"Models\Restaurants.json");
-            List<Restaurant> rList2 = 
-                Serializer.Deserialize<List<Restaurant>>(jsonStr);
-            Console.WriteLine(rList2[0]);
-            Console.WriteLine();
-            Console.WriteLine(rList2[1]);
-            Console.WriteLine();
-            Console.WriteLine(rList2[2]);
+            restaurants = Serializer.Deserialize<List<Restaurant>>(json);
+
+            // Display Restaurants
+            foreach (var restaurant in restaurants)
+            {
+                Console.WriteLine(restaurant);
+                Console.WriteLine();
+            }
             Console.ReadLine();
         }
     }

@@ -36,7 +36,14 @@ namespace LocalGourmet.BLL.Models
 
         public float GetAvgRating()
         {
-            return 0.0f;
+            if(Reviews.Count == 0) { return 0.0f; }
+            float rating = 0.0f;
+            foreach (var review in Reviews)
+            {
+                rating += review.GetRating();
+            }
+            rating /= Reviews.Count;
+            return rating;
         }
 
         public override string ToString()

@@ -11,16 +11,24 @@
         "Comment": "Great!",
         "FoodRating": 5,
         "PriceRating": 5,
-        "ReviewerName": "James Smith",
+        "ReviewerName": "James",
         "ServiceRating": 5
       },
       {
         "AtmosphereRating": 3,
         "Comment": "Pretty good",
-        "FoodRating": 4,
-        "PriceRating": 2,
-        "ReviewerName": "Sarah White",
-        "ServiceRating": 5
+        "FoodRating": 3,
+        "PriceRating": 3,
+        "ReviewerName": "Bob",
+        "ServiceRating": 3
+      },
+      {
+        "AtmosphereRating": 1,
+        "Comment": "Too busy",
+        "FoodRating": 1,
+        "PriceRating": 1,
+        "ReviewerName": "Alice",
+        "ServiceRating": 1
       }
     ],
     "Type": "Fast Food",
