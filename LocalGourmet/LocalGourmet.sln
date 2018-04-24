@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocalGourmet.BLL", "LocalGo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocalGourmet.BLL.UnitTest", "LocalGourmet.BLL.UnitTest\LocalGourmet.BLL.UnitTest.csproj", "{BD1B1CA7-5799-4AB0-8C4D-3B13298329D6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocalGourmet.PL", "LocalGourmet.PL\LocalGourmet.PL.csproj", "{06032BDD-674A-424E-9F21-D9DABF9458E4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{BD1B1CA7-5799-4AB0-8C4D-3B13298329D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BD1B1CA7-5799-4AB0-8C4D-3B13298329D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BD1B1CA7-5799-4AB0-8C4D-3B13298329D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06032BDD-674A-424E-9F21-D9DABF9458E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06032BDD-674A-424E-9F21-D9DABF9458E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06032BDD-674A-424E-9F21-D9DABF9458E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06032BDD-674A-424E-9F21-D9DABF9458E4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

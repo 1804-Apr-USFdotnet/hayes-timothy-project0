@@ -36,7 +36,7 @@ namespace LocalGourmet.BLL.Models
 
         public float GetAvgRating()
         {
-            throw new NotImplementedException();
+            return 0.0f;
         }
 
         public override string ToString()

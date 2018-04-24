@@ -51,8 +51,8 @@ namespace LocalGourmet.BLL.Models
                 StreamWriter writer = new StreamWriter(ms);
                 writer.Write(jsonStr);
                 writer.Flush();
-                obj = (T)ser.ReadObject(ms); // Deserializes JSON data to a  Object
                 ms.Position = 0;
+                obj = (T)ser.ReadObject(ms); // Deserializes JSON data to a  Object
             }
             catch (Exception)
             {
