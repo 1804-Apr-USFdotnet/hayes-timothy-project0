@@ -12,6 +12,14 @@ namespace LocalGourmet.BLL.Models
     [DataContract]
     public class Review : IReview
     {
+        public Review(string name, string comment)
+        {
+            ReviewerName = name;
+            Comment = comment;
+        }
+
+        // Review constructor that assigns the same rating to all
+        // rating categories.
         public Review(string name, string comment, int simpleRating)
         {
             ReviewerName = name;

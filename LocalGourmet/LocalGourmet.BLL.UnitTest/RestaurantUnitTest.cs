@@ -56,7 +56,8 @@ namespace LocalGourmet.BLL.UnitTest
             actual.Add(r3);
             string expectedNoWhitespace = Regex.Replace(expected, @"\s+", "");
             string serializedObj = Serializer.Serialize(actual);
-            string serializedObjNoWhitespace = Regex.Replace(serializedObj, @"\s+", "");
+            string serializedObjNoWhitespace = 
+                Regex.Replace(serializedObj, @"\s+", "");
             Assert.AreEqual(expectedNoWhitespace, serializedObjNoWhitespace);
         }
 
