@@ -12,6 +12,16 @@ namespace LocalGourmet.BLL.Models
     [DataContract]
     public class Review : IReview
     {
+        public Review(string name, string comment, int simpleRating)
+        {
+            ReviewerName = name;
+            Comment = comment;
+            FoodRating = simpleRating;
+            ServiceRating = simpleRating;
+            AtmosphereRating = simpleRating;
+            PriceRating = simpleRating;
+        }
+
         // Individual rating components
         [DataMember]
         int FoodRating { get; set; }
@@ -31,7 +41,8 @@ namespace LocalGourmet.BLL.Models
         // individual review components.
         public float GetRating()
         {
-            return 0.0f;
+            return (float)(FoodRating + ServiceRating + 
+                AtmosphereRating + PriceRating) / 4.0f;
         }
 
     }

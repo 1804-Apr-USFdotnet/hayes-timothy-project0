@@ -21,6 +21,12 @@ namespace LocalGourmet.BLL.UnitTest
             r.WebAddress = "www.subway.com";
             r.Type = "Fast Food";
             r.Hours = "Mon-Sat 8am-10pm, Sun 9am-9pm";
+            Review rev1 = new Review("James", "Great!", 5);
+            Review rev2 = new Review("Bob", "Pretty good", 3);
+            Review rev3 = new Review("Alice", "Too busy", 1);
+            r.Reviews.Add(rev1);
+            r.Reviews.Add(rev2);
+            r.Reviews.Add(rev3);
 
             Restaurant r2 = new Restaurant();
             r2.Name = "Villa Gallace";
@@ -66,6 +72,12 @@ namespace LocalGourmet.BLL.UnitTest
             r.WebAddress = "www.subway.com";
             r.Type = "Fast Food";
             r.Hours = "Mon-Sat 8am-10pm, Sun 9am-9pm";
+            Review rev1 = new Review("James", "Great!", 5);
+            Review rev2 = new Review("Bob", "Pretty good", 3);
+            Review rev3 = new Review("Alice", "Too busy", 1);
+            r.Reviews.Add(rev1);
+            r.Reviews.Add(rev2);
+            r.Reviews.Add(rev3);
 
             Restaurant r2 = new Restaurant();
             r2.Name = "Villa Gallace";
@@ -99,7 +111,6 @@ namespace LocalGourmet.BLL.UnitTest
             Assert.AreEqual(expected[0].ToString(), actual[0].ToString());
             Assert.AreEqual(expected[1].ToString(), actual[1].ToString());
             Assert.AreEqual(expected[2].ToString(), actual[2].ToString());
-
         }
     }
 }

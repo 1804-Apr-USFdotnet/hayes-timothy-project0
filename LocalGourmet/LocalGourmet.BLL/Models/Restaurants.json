@@ -5,7 +5,32 @@
     "Location": "14961 N Florida Ave, Suite 14961, Florida Crossing Shopping Cntr, Tampa, FL 33613, USA",
     "Name": "Subway",
     "PhoneNumber": "(813) 963-2670",
-    "Reviews": [],
+    "Reviews": [
+      {
+        "AtmosphereRating": 5,
+        "Comment": "Great!",
+        "FoodRating": 5,
+        "PriceRating": 5,
+        "ReviewerName": "James",
+        "ServiceRating": 5
+      },
+      {
+        "AtmosphereRating": 3,
+        "Comment": "Pretty good",
+        "FoodRating": 3,
+        "PriceRating": 3,
+        "ReviewerName": "Bob",
+        "ServiceRating": 3
+      },
+      {
+        "AtmosphereRating": 1,
+        "Comment": "Too busy",
+        "FoodRating": 1,
+        "PriceRating": 1,
+        "ReviewerName": "Alice",
+        "ServiceRating": 1
+      }
+    ],
     "Type": "Fast Food",
     "WebAddress": "www.subway.com"
   },
@@ -29,4 +54,4 @@
     "Type": "Diner",
     "WebAddress": "threecoinsdiner.net"
   }
-]
+] 
