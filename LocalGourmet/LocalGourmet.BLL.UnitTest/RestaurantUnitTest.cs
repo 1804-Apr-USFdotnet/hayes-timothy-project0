@@ -40,18 +40,18 @@ namespace LocalGourmet.BLL.UnitTest
             r3.Type = "Diner";
             r3.Hours = "Mon-Sun 12am-11:30pm";
 
-            string jsonStr = System.IO.File.ReadAllText(@"C:\revature\" + 
+            string expected = System.IO.File.ReadAllText(@"C:\revature\" + 
                 @"hayes-timothy-project0\LocalGourmet\LocalGourmet.BLL\" +
                 @"Models\Restaurants.json");
 
-            List<Restaurant> rl = new List<Restaurant>();
-            rl.Add(r);
-            rl.Add(r2);
-            rl.Add(r3);
-            string jsonStrNoWhitespace = Regex.Replace(jsonStr, @"\s+", "");
-            string serializedObj = Serializer.Serialize(rl);
+            List<Restaurant> actual = new List<Restaurant>();
+            actual.Add(r);
+            actual.Add(r2);
+            actual.Add(r3);
+            string expectedNoWhitespace = Regex.Replace(expected, @"\s+", "");
+            string serializedObj = Serializer.Serialize(actual);
             string serializedObjNoWhitespace = Regex.Replace(serializedObj, @"\s+", "");
-            Assert.AreEqual(jsonStrNoWhitespace, serializedObjNoWhitespace);
+            Assert.AreEqual(expectedNoWhitespace, serializedObjNoWhitespace);
         }
 
         [TestMethod]
@@ -89,16 +89,16 @@ namespace LocalGourmet.BLL.UnitTest
                 @"hayes-timothy-project0\LocalGourmet\LocalGourmet.BLL\" +
                 @"Models\Restaurants.json");
 
-            List<Restaurant> rl = new List<Restaurant>();
-            rl.Add(r);
-            rl.Add(r2);
-            rl.Add(r3);
+            List<Restaurant> expected = new List<Restaurant>();
+            expected.Add(r);
+            expected.Add(r2);
+            expected.Add(r3);
 
-            List<Restaurant> rList = 
+            List<Restaurant> actual = 
                 Serializer.Deserialize<List<Restaurant>>(jsonStr);
-            Assert.AreEqual(rl[0].ToString(), rList[0].ToString());
-            Assert.AreEqual(rl[1].ToString(), rList[1].ToString());
-            Assert.AreEqual(rl[2].ToString(), rList[2].ToString());
+            Assert.AreEqual(expected[0].ToString(), actual[0].ToString());
+            Assert.AreEqual(expected[1].ToString(), actual[1].ToString());
+            Assert.AreEqual(expected[2].ToString(), actual[2].ToString());
 
         }
     }
