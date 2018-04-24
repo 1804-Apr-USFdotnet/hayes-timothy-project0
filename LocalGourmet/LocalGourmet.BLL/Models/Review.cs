@@ -120,8 +120,8 @@ namespace LocalGourmet.BLL.Models
         // individual review components.
         public float GetRating()
         {
-            return (float)(FoodRating + ServiceRating + 
-                AtmosphereRating + PriceRating) / 4.0f;
+            return (float) Math.Round(((FoodRating + ServiceRating +
+                AtmosphereRating + PriceRating) / 4.0), 2);
         }
 
     }

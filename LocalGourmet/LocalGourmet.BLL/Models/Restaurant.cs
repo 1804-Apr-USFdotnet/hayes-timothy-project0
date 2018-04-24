@@ -45,14 +45,14 @@ namespace LocalGourmet.BLL.Models
                 rating += review.GetRating();
             }
             rating /= Reviews.Count;
-            return rating;
+            return (float) Math.Round(rating, 2);
         }
+
 
         public override string ToString()
         {
-            return $"{Name}, {Location}, {Cuisine}, {Specialty}, " +
-                $"{PhoneNumber}, {WebAddress}, {Reviews.Count} Reviews, " +
-                $"{Type}, {Hours}, AvgRating: {GetAvgRating()}.";
+            return $"{Name}, {Cuisine}, {Reviews.Count} Reviews, " +
+                $"{Type}, AvgRating: {GetAvgRating()}.";
         }
     }
 }
