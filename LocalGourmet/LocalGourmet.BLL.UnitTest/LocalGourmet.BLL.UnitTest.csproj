@@ -50,6 +50,8 @@
   <ItemGroup>
     <Compile Include="RestaurantUnitTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReviewUnitTest.cs" />
+    <Compile Include="SerializerUnitTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

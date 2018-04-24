@@ -22,6 +22,9 @@ namespace LocalGourmet.BLL.Models
         // rating categories.
         public Review(string name, string comment, int simpleRating)
         {
+            // Enforce a rating between 0 and 5 inclusive
+            simpleRating = 
+                simpleRating < 0 ? 0 : (simpleRating > 5 ? 5 : simpleRating);
             ReviewerName = name;
             Comment = comment;
             FoodRating = simpleRating;
@@ -32,13 +35,53 @@ namespace LocalGourmet.BLL.Models
 
         // Individual rating components
         [DataMember]
-        int FoodRating { get; set; }
+        private int foodRating;
+        public int FoodRating
+        {
+            get { return foodRating; }
+            set
+            {
+                // Enforce a rating between 0 and 5 inclusive
+                foodRating = value < 0 ? 0 : (value > 5 ? 5 : value);
+            }
+        }
+
         [DataMember]
-        int ServiceRating { get; set; }
+        private int serviceRating;
+        public int ServiceRating 
+        {
+            get { return serviceRating; }
+            set
+            {
+                // Enforce a rating between 0 and 5 inclusive
+                serviceRating = value < 0 ? 0 : (value > 5 ? 5 : value);
+            }
+        }
+
         [DataMember]
-        int AtmosphereRating { get; set; }
+        private int atmosphereRating;
+        public int AtmosphereRating 
+        {
+            get { return atmosphereRating;  }
+            set
+            {
+                // Enforce a rating between 0 and 5 inclusive
+                atmosphereRating = value < 0 ? 0 : (value > 5 ? 5 : value);
+            }
+        }
+        
+        // Was it a good deal, or too expensive?
         [DataMember]
-        int PriceRating { get; set; } // Was it a good deal, or too expensive?
+        private int priceRating;
+        public int PriceRating 
+        {
+            get { return priceRating; }
+            set
+            {
+                // Enforce a rating between 0 and 5 inclusive
+                priceRating = value < 0 ? 0 : (value > 5 ? 5 : value);
+            }
+        }
 
         [DataMember]
         public string Comment { get; set; } 
