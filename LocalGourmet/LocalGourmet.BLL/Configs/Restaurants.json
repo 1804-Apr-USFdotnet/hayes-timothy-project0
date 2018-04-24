@@ -69,5 +69,60 @@
     "Type": "Dessert",
     "Specialty": "Doughnuts",
     "WebAddress": "minidoughnutfactory.com"
+  },
+  {
+    "Cuisine": "American",
+    "Hours": "Sun-Sat 11:15am-3am",
+    "Location": "107 S Franklin St, Tampa, FL 33602, USA",
+    "Name": "Hattricks",
+    "PhoneNumber": "(813) 225-4288",
+    "Reviews": [],
+    "Type": "Pub",
+    "Specialty": "Wings",
+    "WebAddress": "hattrickstavern.com"
+  },
+  {
+    "Cuisine": "American",
+    "Hours": "Sun-Thu 11am-11pm, Fri-Sat 11am-12am",
+    "Location": "1600 E 9th Ave, Tampa, FL 33605, USA",
+    "Name": "Tampa Bay Brewing Company",
+    "PhoneNumber": "(813) 247-1422",
+    "Reviews": [],
+    "Type": "Pub",
+    "Specialty": "Beer Cheese Soup",
+    "WebAddress": "tbbc.beer"
+  },
+  {
+    "Cuisine": "Spanish",
+    "Hours": "Mon-Sat 11am-11pm, Sun 11:30am-9pm",
+    "Location": "2117 E 7th Ave, Tampa, FL 33605, USA",
+    "Name": "Columbia Restaurant",
+    "PhoneNumber": "(813) 248-4961",
+    "Reviews": [],
+    "Type": "Fine Restaurant",
+    "Specialty": "Paella",
+    "WebAddress": "columbiarestaurant.com"
+  },
+  {
+    "Cuisine": "Chinese",
+    "Hours": "Mon-Sun 10:30am-9:30pm",
+    "Location": "2620 E Hillsborough Ave, Tampa, FL 33610, USA",
+    "Name": "Yummy House China Bistro",
+    "PhoneNumber": "(813) 237-3838",
+    "Reviews": [],
+    "Type": "",
+    "Specialty": "Dim Sum",
+    "WebAddress": "yummyhouseflorida.com"
+  },
+  {
+    "Cuisine": "American",
+    "Hours": "Sun-Thu 11:30am-10pm, Fri-Sat 11:30am-11pm",
+    "Location": "17050 Palm Pointe Dr, Tampa, FL 33647, USA",
+    "Name": "Stonewood Grill & Tavern",
+    "PhoneNumber": "(813) 978-0388",
+    "Reviews": [],
+    "Type": "Steakhouse",
+    "Specialty": "Steak",
+    "WebAddress": "stonewoodgrill.com"
   }
 ] 
