@@ -21,13 +21,45 @@ namespace LocalGourmet.PL
             List<Restaurant> top3 = new List<Restaurant>();
             top3 = Restaurant.GetTop3();
 
-            // Display Restaurants
-            foreach (var restaurant in top3)
+            // Demo of BLL functionality
+
+            //DisplayAllWithAllInfo(restaurants);
+            //DisplayTop3Summarized(top3);
+            //DisplaySummarizedWithReviews(top3);
+
+            Console.ReadLine();
+        }
+
+        public static void DisplayAllWithAllInfo(List<Restaurant> all)
+        {
+            foreach (var restaurant in all)
             {
                 Console.WriteLine(restaurant);
                 Console.WriteLine();
             }
-            Console.ReadLine();
+        }
+
+        public static void DisplayTop3Summarized(List<Restaurant> top3)
+        {
+            foreach (var restaurant in top3)
+            {
+                Console.WriteLine(restaurant.GetSummary());
+                Console.WriteLine();
+            }
+        }
+
+        public static void DisplaySummarizedWithReviews(List<Restaurant> list)
+        {
+            foreach (var restaurant in list)
+            {
+                Console.WriteLine(restaurant.GetSummary());
+                List<Review> reviews = restaurant.Reviews;
+                foreach (var r in reviews)
+                {
+                    Console.WriteLine(r);
+                }
+                Console.WriteLine();
+            }
         }
     }
 }
