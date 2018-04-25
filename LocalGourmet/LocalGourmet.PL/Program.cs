@@ -21,10 +21,17 @@ namespace LocalGourmet.PL
             List<Restaurant> top3 = new List<Restaurant>();
             top3 = Restaurant.GetTop3();
 
+            //List<Restaurant> sorted = Restaurant.SortByNameAsc();
+            //List<Restaurant> sorted = Restaurant.SortByCuisineAsc();
+            List<Restaurant> sorted = Restaurant.SortByAvgRatingDesc();
+
+
+
             // Demo of BLL functionality
 
+            DisplaySummarized(sorted);
             //DisplayAllWithAllInfo(restaurants);
-            //DisplayTop3Summarized(top3);
+            //DisplaySummarized(top3);
             //DisplaySummarizedWithReviews(top3);
 
             Console.ReadLine();
@@ -39,9 +46,9 @@ namespace LocalGourmet.PL
             }
         }
 
-        public static void DisplayTop3Summarized(List<Restaurant> top3)
+        public static void DisplaySummarized(List<Restaurant> list)
         {
-            foreach (var restaurant in top3)
+            foreach (var restaurant in list)
             {
                 Console.WriteLine(restaurant.GetSummary());
                 Console.WriteLine();

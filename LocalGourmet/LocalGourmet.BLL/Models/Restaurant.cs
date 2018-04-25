@@ -106,6 +106,44 @@ namespace LocalGourmet.BLL.Models
             return top3;
         }
 
+        public static List<Restaurant> SortByAvgRatingDesc()
+        {
+            List<Restaurant> unsorted = new List<Restaurant>();
+
+            List<Restaurant> sorted = new List<Restaurant>();
+            string json = System.IO.File.ReadAllText(@"C:\revature\" + 
+                @"hayes-timothy-project0\LocalGourmet\LocalGourmet.BLL\" +
+                @"Configs\Restaurants.json");
+            unsorted = Serializer.Deserialize<List<Restaurant>>(json);
+            sorted = unsorted.OrderByDescending(x => x.GetAvgRating()).ToList();
+            return sorted;
+        }
+
+        public static List<Restaurant> SortByNameAsc()
+        {
+            List<Restaurant> unsorted = new List<Restaurant>();
+
+            List<Restaurant> sorted = new List<Restaurant>();
+            string json = System.IO.File.ReadAllText(@"C:\revature\" + 
+                @"hayes-timothy-project0\LocalGourmet\LocalGourmet.BLL\" +
+                @"Configs\Restaurants.json");
+            unsorted = Serializer.Deserialize<List<Restaurant>>(json);
+            sorted = unsorted.OrderBy(x => x.Name).ToList();
+            return sorted;
+        }
+
+        public static List<Restaurant> SortByCuisineAsc()
+        {
+            List<Restaurant> unsorted = new List<Restaurant>();
+
+            List<Restaurant> sorted = new List<Restaurant>();
+            string json = System.IO.File.ReadAllText(@"C:\revature\" + 
+                @"hayes-timothy-project0\LocalGourmet\LocalGourmet.BLL\" +
+                @"Configs\Restaurants.json");
+            unsorted = Serializer.Deserialize<List<Restaurant>>(json);
+            sorted = unsorted.OrderBy(x => x.Cuisine).ToList();
+            return sorted;
+        }
 
         // Return name and rating only
         public string GetNameAndRating()
