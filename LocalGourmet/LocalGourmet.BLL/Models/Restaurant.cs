@@ -52,6 +52,56 @@ namespace LocalGourmet.BLL.Models
         {
             List<Restaurant> top3 = new List<Restaurant>();
 
+            List<Restaurant> restaurants = new List<Restaurant>();
+            string json = System.IO.File.ReadAllText(@"C:\revature\" + 
+                @"hayes-timothy-project0\LocalGourmet\LocalGourmet.BLL\" +
+                @"Configs\Restaurants.json");
+            restaurants = Serializer.Deserialize<List<Restaurant>>(json);
+
+            float bestRating = 0.0f;
+            float secondBestRating = 0.0f;
+            float thirdBestRating = 0.0f;
+
+            int bestIndex = -1;
+            int secondBestIndex = -1;
+            int thirdBestIndex = -1;
+
+            int index = 0;
+
+            // Find top 3
+            foreach (Restaurant r in restaurants)
+            {
+                float rating = r.GetAvgRating();
+                // New Best
+                if(rating > bestRating)
+                {
+                    thirdBestRating = secondBestRating;
+                    secondBestRating = bestRating;
+                    bestRating = rating;
+
+                    thirdBestIndex = secondBestIndex;
+                    secondBestIndex = bestIndex;
+                    bestIndex = index;
+                // New Second Best
+                } else if (rating <= bestRating && rating > secondBestRating)
+                {
+                    thirdBestRating = secondBestRating;
+                    secondBestRating = rating;
+
+                    thirdBestIndex = secondBestIndex;
+                    secondBestIndex = index;
+                // New Third Best
+                } else if (rating <= secondBestRating && rating > thirdBestRating)
+                {
+                    thirdBestRating = rating;
+                    thirdBestIndex = index;
+                }
+                index++;
+            }
+
+            top3.Add(restaurants.ElementAt(bestIndex));
+            top3.Add(restaurants.ElementAt(secondBestIndex));
+            top3.Add(restaurants.ElementAt(thirdBestIndex));
 
             return top3;
         }

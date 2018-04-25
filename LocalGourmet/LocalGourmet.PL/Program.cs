@@ -18,8 +18,11 @@ namespace LocalGourmet.PL
                 @"Configs\Restaurants.json");
             restaurants = Serializer.Deserialize<List<Restaurant>>(json);
 
+            List<Restaurant> top3 = new List<Restaurant>();
+            top3 = Restaurant.GetTop3();
+
             // Display Restaurants
-            foreach (var restaurant in restaurants)
+            foreach (var restaurant in top3)
             {
                 Console.WriteLine(restaurant);
                 Console.WriteLine();
