@@ -52,5 +52,32 @@ namespace LocalGourmet.BLL.UnitTest
             Assert.AreEqual(expected[2].ToString(), actual[2].ToString());
         }
 
+        [TestMethod]
+        public void TestSearchByName()
+        {
+            // Arrange
+            List<Restaurant> restaurants = new List<Restaurant>();
+            string json = System.IO.File.ReadAllText(@"C:\revature\" + 
+                @"hayes-timothy-project0\LocalGourmet\LocalGourmet.BLL\" +
+                @"Configs\RestaurantsForUnitTest2.json");
+            restaurants = Serializer.Deserialize<List<Restaurant>>(json);
+
+            // Act
+            string s1 = "sub";
+            List<Restaurant> a1 = Restaurant.SearchByName(s1);
+
+            string s2 = "CO";
+            List<Restaurant> a2 = Restaurant.SearchByName(s2);
+
+            // Assert
+            Assert.AreEqual("Subway", a1[0].Name);
+            Assert.AreEqual(1, a1.Count);
+
+            Assert.AreEqual("Three Coins Diner", a2[0].Name);
+            Assert.AreEqual("Tampa Bay Brewing Company", a2[1].Name);
+            Assert.AreEqual("Columbia Restaurant", a2[2].Name);
+            Assert.AreEqual(3, a2.Count);
+        }
+
     }
 }

@@ -145,6 +145,25 @@ namespace LocalGourmet.BLL.Models
             return sorted;
         }
 
+        // Return a list of all restaurants whose names were partially
+        // matched by the search string.
+        public static List<Restaurant> SearchByName(string search)
+        {
+            string json = System.IO.File.ReadAllText(@"C:\revature\" + 
+                @"hayes-timothy-project0\LocalGourmet\LocalGourmet.BLL\" +
+                @"Configs\Restaurants.json");
+            List<Restaurant> restaurants = Serializer.Deserialize<List<Restaurant>>(json);
+            List<Restaurant> matches = new List<Restaurant>();
+            var result = (from r in restaurants
+                          where r.Name.ToLower().Contains(search.ToLower())
+                          select r).ToList();
+            foreach (var item in result)
+            {
+                matches.Add(item);
+            }
+            return matches;
+        }
+
         // Return name and rating only
         public string GetNameAndRating()
         {
