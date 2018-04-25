@@ -124,5 +124,12 @@ namespace LocalGourmet.BLL.Models
                 AtmosphereRating + PriceRating) / 4.0), 2);
         }
 
+        public override string ToString()
+        {
+            return $"[{GetRating()}] {ReviewerName}: {Comment} [Food: " +
+                $"{FoodRating}, Service: {ServiceRating}, Atmosphere: " +
+                $"{AtmosphereRating}, Price: {PriceRating}]";
+        }
+
     }
 }

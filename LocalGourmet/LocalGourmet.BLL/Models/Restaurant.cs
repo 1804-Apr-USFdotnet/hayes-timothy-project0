@@ -107,10 +107,25 @@ namespace LocalGourmet.BLL.Models
         }
 
 
-        public override string ToString()
+        // Return name and rating only
+        public string GetNameAndRating()
+        {
+            return $"{Name} [{GetAvgRating()}]";
+        }
+
+        // Return summary of info
+        public string GetSummary()
         {
             return $"{Name}, {Cuisine}, {Reviews.Count} Reviews, " +
                 $"{Type}, AvgRating: {GetAvgRating()}.";
+        }
+
+        // Return all info
+        public override string ToString()
+        {
+            return $"{Name}, {Cuisine}, {Location}, {Specialty}, " +
+                $"{PhoneNumber}, {WebAddress}, {Hours}, " +
+                $"{Reviews.Count} Reviews, {Type}, AvgRating: {GetAvgRating()}.";
         }
     }
 }
