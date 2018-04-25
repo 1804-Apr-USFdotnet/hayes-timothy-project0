@@ -29,8 +29,8 @@ namespace LocalGourmet.PL
 
             // Demo of BLL functionality
 
-            DisplaySummarized(sorted);
-            //DisplayAllWithAllInfo(restaurants);
+            //DisplaySummarized(sorted);
+            DisplayAllWithAllInfo(restaurants);
             //DisplaySummarized(top3);
             //DisplaySummarizedWithReviews(top3);
 
