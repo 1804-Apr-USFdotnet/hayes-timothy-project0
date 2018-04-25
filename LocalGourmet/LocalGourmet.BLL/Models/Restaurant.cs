@@ -48,6 +48,14 @@ namespace LocalGourmet.BLL.Models
             return (float) Math.Round(rating, 2);
         }
 
+        public static List<Restaurant> GetTop3()
+        {
+            List<Restaurant> top3 = new List<Restaurant>();
+
+
+            return top3;
+        }
+
 
         public override string ToString()
         {

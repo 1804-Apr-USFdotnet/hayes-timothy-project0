@@ -49,6 +49,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Configs\RestaurantsForUnitTest2.json" />
     <None Include="Configs\RestaurantsForUnitTest.json" />
     <None Include="Configs\Restaurants.json" />
   </ItemGroup>
