@@ -18,7 +18,6 @@ namespace LocalGourmet.PL
                 @"hayes-timothy-project0\LocalGourmet\LocalGourmet.BLL\" +
                 @"Configs\Restaurants.json");
             restaurants = Serializer.Deserialize<List<Restaurant>>(json);
-
             //List<Restaurant> top3 = new List<Restaurant>();
             //top3 = Restaurant.GetTop3();
 
@@ -35,6 +34,9 @@ namespace LocalGourmet.PL
                 {
                     case "help":
                         Help();
+                        break;
+                    case "all":
+                        DisplayAllWithAllInfo(restaurants);
                         break;
                 }
 
@@ -54,25 +56,21 @@ namespace LocalGourmet.PL
 
             //List<Restaurant> sorted = Restaurant.SortByNameAsc();
             //List<Restaurant> sorted = Restaurant.SortByCuisineAsc();
-            List<Restaurant> sorted = Restaurant.SortByAvgRatingDesc();
-
-
+            //List<Restaurant> sorted = Restaurant.SortByAvgRatingDesc();
 
             // Demo of BLL functionality
-
             //DisplaySummarized(sorted);
-            DisplayAllWithAllInfo(restaurants);
             //DisplaySummarized(top3);
             //DisplaySummarizedWithReviews(top3);
-
-            Console.ReadLine();
         }
 
         static void Help()
         {
             Console.WriteLine("List of commands:");
-            Console.WriteLine("help");
-            Console.WriteLine("quit");
+            Console.WriteLine("-------------------------------------------");
+            Console.WriteLine("help -- display all commands");
+            Console.WriteLine("all -- display all info for all restaurants");
+            Console.WriteLine("quit -- quit the application");
             Console.WriteLine();
         }
 
@@ -80,8 +78,9 @@ namespace LocalGourmet.PL
         {
             switch(input)
             {
-                case "quit":
                 case "help":
+                case "all":
+                case "quit":
                     return true;
                 default:
                     return false;
@@ -90,13 +89,13 @@ namespace LocalGourmet.PL
 
         static void Quit()
         {
-            Console.Write("Quitting Local Gourmet App");
-            Thread.Sleep(800);
-            Console.Write(".");
-            Thread.Sleep(800);
-            Console.Write(".");
-            Thread.Sleep(800);
-            Console.Write(".");
+            //Console.Write("Quitting Local Gourmet App");
+            //Thread.Sleep(800);
+            //Console.Write(".");
+            //Thread.Sleep(800);
+            //Console.Write(".");
+            //Thread.Sleep(800);
+            //Console.Write(".");
         }
 
         public static void DisplayAllWithAllInfo(List<Restaurant> all)
