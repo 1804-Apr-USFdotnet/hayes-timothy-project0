@@ -4,12 +4,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 
 namespace LocalGourmet.PL
 {
     class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             // Deserialize Restaurants
             List<Restaurant> restaurants = new List<Restaurant>();
@@ -18,8 +19,38 @@ namespace LocalGourmet.PL
                 @"Configs\Restaurants.json");
             restaurants = Serializer.Deserialize<List<Restaurant>>(json);
 
-            List<Restaurant> top3 = new List<Restaurant>();
-            top3 = Restaurant.GetTop3();
+            //List<Restaurant> top3 = new List<Restaurant>();
+            //top3 = Restaurant.GetTop3();
+
+            // Start Console UI
+            Console.WriteLine("Local Gourmet App");
+            Console.WriteLine("-----------------");
+            Console.WriteLine("                 ");
+
+            string input = "help";
+            while(input != "quit")
+            {
+                // Perform command
+                switch(input)
+                {
+                    case "help":
+                        Help();
+                        break;
+                }
+
+
+                // Get next command
+                Console.Write("<input> ");
+                input = Console.ReadLine().ToLower();
+                if(!Valid(input))
+                {
+                    Console.WriteLine($"[{input}] is an invalid command.");
+                    input = "help";
+                }
+            }
+            Quit();
+
+
 
             //List<Restaurant> sorted = Restaurant.SortByNameAsc();
             //List<Restaurant> sorted = Restaurant.SortByCuisineAsc();
@@ -35,6 +66,37 @@ namespace LocalGourmet.PL
             //DisplaySummarizedWithReviews(top3);
 
             Console.ReadLine();
+        }
+
+        static void Help()
+        {
+            Console.WriteLine("List of commands:");
+            Console.WriteLine("help");
+            Console.WriteLine("quit");
+            Console.WriteLine();
+        }
+
+        static bool Valid(string input)
+        {
+            switch(input)
+            {
+                case "quit":
+                case "help":
+                    return true;
+                default:
+                    return false;
+            }
+        }
+
+        static void Quit()
+        {
+            Console.Write("Quitting Local Gourmet App");
+            Thread.Sleep(800);
+            Console.Write(".");
+            Thread.Sleep(800);
+            Console.Write(".");
+            Thread.Sleep(800);
+            Console.Write(".");
         }
 
         public static void DisplayAllWithAllInfo(List<Restaurant> all)
