@@ -64,10 +64,10 @@ namespace LocalGourmet.BLL.UnitTest
 
             // Act
             string s1 = "sub";
-            List<Restaurant> a1 = Restaurant.SearchByName(s1);
+            List<Restaurant> a1 = Restaurant.SearchByName(Restaurant.GetAll(), s1);
 
             string s2 = "CO";
-            List<Restaurant> a2 = Restaurant.SearchByName(s2);
+            List<Restaurant> a2 = Restaurant.SearchByName(Restaurant.GetAll(), s2);
 
             // Assert
             Assert.AreEqual("Subway", a1[0].Name);

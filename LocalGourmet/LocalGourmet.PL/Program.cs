@@ -13,13 +13,8 @@ namespace LocalGourmet.PL
         public static void Main(string[] args)
         {
             // Deserialize Restaurants
-            List<Restaurant> restaurants = new List<Restaurant>();
-            string json = System.IO.File.ReadAllText(@"C:\revature\" +
-                @"hayes-timothy-project0\LocalGourmet\LocalGourmet.BLL\" +
-                @"Configs\Restaurants.json");
-            restaurants = Serializer.Deserialize<List<Restaurant>>(json);
-            //List<Restaurant> top3 = new List<Restaurant>();
-            //top3 = Restaurant.GetTop3();
+            List<Restaurant> restaurants = Restaurant.GetAll();
+            List<Restaurant> top3 = Restaurant.GetTop3();
 
             // Start Console UI
             Console.WriteLine("Local Gourmet App");
@@ -33,10 +28,30 @@ namespace LocalGourmet.PL
                 switch(input)
                 {
                     case "help":
+                    case "h":
                         Help();
                         break;
                     case "all":
-                        DisplayAllWithAllInfo(restaurants);
+                    case "a":
+                        DisplayWithAllInfo(restaurants);
+                        break;
+                    case "top3":
+                    case "t3":
+                        DisplayWithAllInfo(top3);
+                        break;
+                    case "summary all":
+                    case "sa":
+                        DisplaySummarized(restaurants);
+                        break;
+                    case "summary top3":
+                    case "st3":
+                        DisplaySummarized(top3);
+                        break;
+                    case "ar":
+                        DisplaySummarizedWithReviews(restaurants);
+                        break;
+                    case "t3r":
+                        DisplaySummarizedWithReviews(top3);
                         break;
                 }
 
@@ -50,27 +65,26 @@ namespace LocalGourmet.PL
                     input = "help";
                 }
             }
-            Quit();
 
 
 
             //List<Restaurant> sorted = Restaurant.SortByNameAsc();
             //List<Restaurant> sorted = Restaurant.SortByCuisineAsc();
             //List<Restaurant> sorted = Restaurant.SortByAvgRatingDesc();
-
-            // Demo of BLL functionality
-            //DisplaySummarized(sorted);
-            //DisplaySummarized(top3);
-            //DisplaySummarizedWithReviews(top3);
         }
 
         static void Help()
         {
             Console.WriteLine("List of commands:");
             Console.WriteLine("-------------------------------------------");
-            Console.WriteLine("help -- display all commands");
-            Console.WriteLine("all -- display all info for all restaurants");
-            Console.WriteLine("quit -- quit the application");
+            Console.WriteLine("help         -- display all commands");
+            Console.WriteLine("all          -- display all info for all restaurants");
+            Console.WriteLine("top3         -- display all info for top3 restaurants");
+            Console.WriteLine("summary all  -- display summarized info for all restaurants");
+            Console.WriteLine("summary top3 -- display summarized info for top3 restaurants");
+            Console.WriteLine("all rev      -- display summarized info and reviews for all restaurants");
+            Console.WriteLine("top3 rev     -- display summarized info and reviews for top3 restaurants");
+            Console.WriteLine("quit         -- quit the application");
             Console.WriteLine();
         }
 
@@ -80,6 +94,11 @@ namespace LocalGourmet.PL
             {
                 case "help":
                 case "all":
+                case "top3":
+                case "summary all":
+                case "summary top3":
+                case "all rev":
+                case "top3 rev":
                 case "quit":
                     return true;
                 default:
@@ -87,20 +106,9 @@ namespace LocalGourmet.PL
             }
         }
 
-        static void Quit()
+        public static void DisplayWithAllInfo(List<Restaurant> list)
         {
-            //Console.Write("Quitting Local Gourmet App");
-            //Thread.Sleep(800);
-            //Console.Write(".");
-            //Thread.Sleep(800);
-            //Console.Write(".");
-            //Thread.Sleep(800);
-            //Console.Write(".");
-        }
-
-        public static void DisplayAllWithAllInfo(List<Restaurant> all)
-        {
-            foreach (var restaurant in all)
+            foreach (var restaurant in list)
             {
                 Console.WriteLine(restaurant);
                 Console.WriteLine();
