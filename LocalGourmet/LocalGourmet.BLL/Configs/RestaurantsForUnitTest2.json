@@ -2,6 +2,7 @@
   {
     "Cuisine": "American",
     "Hours": "Mon-Sat 8am-10pm, Sun 9am-9pm",
+    "ID": 1,
     "Location": "14961 N Florida Ave, Suite 14961, Florida Crossing Shopping Cntr, Tampa, FL 33613, USA",
     "Name": "Subway",
     "PhoneNumber": "(813) 963-2670",
@@ -70,6 +71,7 @@
   {
     "Cuisine": "Italian",
     "Hours": "Mon-Sat 5pm-10:30pm, Sun 4pm-10pm",
+    "ID": 2,
     "Location": "109 Gulf Blvd, Indian Rocks Beach, FL 33785, USA",
     "Name": "Villa Gallace",
     "PhoneNumber": "(727) 596-0200",
@@ -122,6 +124,7 @@
   {
     "Cuisine": "American",
     "Hours": "Mon-Sun 12am-11:30pm",
+    "ID": 3,
     "Location": "7410 N Nebraska Ave, Tampa, FL 33604, USA",
     "Name": "Three Coins Diner",
     "PhoneNumber": "(813) 239-1256",
@@ -157,6 +160,7 @@
   {
     "Cuisine": "Peruvian",
     "Hours": "Mon-Thu 11:30am-8pm, Fri-Sat 11:30am-9pm, Sun 12pm-8pm",
+    "ID": 4,
     "Location": "4046 N Armenia Ave, Fiesta Plaza, Tampa, FL 33607, USA",
     "Name": "Happy Fish",
     "PhoneNumber": "(813) 871-6953",
@@ -201,6 +205,7 @@
   {
     "Cuisine": "American",
     "Hours": "Mon-Thu 6:30am-6:30pm, Fri 6:30am-10pm, Sat 7:30am-10pm, Sun 7:30am-6:30pm",
+    "ID": 5,
     "Location": "2109 S Dale Mabry Hwy, Tampa, FL 33629, USA",
     "Name": "Mini Doughnut Factory",
     "PhoneNumber": "(813) 254-5374",
@@ -365,6 +370,7 @@
   {
     "Cuisine": "American",
     "Hours": "Sun-Sat 11:15am-3am",
+    "ID": 6,
     "Location": "107 S Franklin St, Tampa, FL 33602, USA",
     "Name": "Hattricks",
     "PhoneNumber": "(813) 225-4288",
@@ -465,6 +471,7 @@
   {
     "Cuisine": "American",
     "Hours": "Sun-Thu 11am-11pm, Fri-Sat 11am-12am",
+    "ID": 7,
     "Location": "1600 E 9th Ave, Tampa, FL 33605, USA",
     "Name": "Tampa Bay Brewing Company",
     "PhoneNumber": "(813) 247-1422",
@@ -533,6 +540,7 @@
   {
     "Cuisine": "Spanish",
     "Hours": "Mon-Sat 11am-11pm, Sun 11:30am-9pm",
+    "ID": 8,
     "Location": "2117 E 7th Ave, Tampa, FL 33605, USA",
     "Name": "Columbia Restaurant",
     "PhoneNumber": "(813) 248-4961",
@@ -681,6 +689,7 @@
   {
     "Cuisine": "Chinese",
     "Hours": "Mon-Sun 10:30am-9:30pm",
+    "ID": 9,
     "Location": "2620 E Hillsborough Ave, Tampa, FL 33610, USA",
     "Name": "Yummy House China Bistro",
     "PhoneNumber": "(813) 237-3838",
@@ -805,6 +814,7 @@
   {
     "Cuisine": "American",
     "Hours": "Sun-Thu 11:30am-10pm, Fri-Sat 11:30am-11pm",
+    "ID": 10,
     "Location": "17050 Palm Pointe Dr, Tampa, FL 33647, USA",
     "Name": "Stonewood Grill & Tavern",
     "PhoneNumber": "(813) 978-0388",

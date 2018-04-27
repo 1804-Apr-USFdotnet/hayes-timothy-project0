@@ -10,6 +10,7 @@ namespace LocalGourmet.BLL.Interfaces
     {
         // Calculates and returns the overall review rating.
         float GetRating(); 
+        int ID { get; set; }
         string ReviewerName { get; set; }
         string Comment { get; set; }
     }
