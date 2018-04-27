@@ -1,4 +1,7 @@
-﻿using LocalGourmet.BLL.Models;
+﻿using NLog;
+using NLog.Config;
+using NLog.Targets;
+using LocalGourmet.BLL.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +15,9 @@ namespace LocalGourmet.PL
     {
         public static void Main(string[] args)
         {
+            Logger log = LogManager.GetLogger("file");
+            log.Info("Start session: " + System.DateTime.Now);
+
             // Start Console UI
             Console.WriteLine("Local Gourmet App");
             Console.WriteLine("-----------------");
@@ -31,12 +37,14 @@ namespace LocalGourmet.PL
                 Console.WriteLine();
                 Console.Write("<input> ");
                 input = Console.ReadLine().ToLower();
+                log.Info(input);
                 while(input != "all" && input != "top3" && input != "search"
                     && input != "quit")
                 {
                     Console.WriteLine($"[{input}] is invalid. Choose [all], [top3], [search] or [quit].");
                     Console.Write("<input> ");
                     input = Console.ReadLine().ToLower();
+                    log.Info(input);
                 }
                 switch(input)
                 {
@@ -75,12 +83,14 @@ namespace LocalGourmet.PL
                     "summarized info with reviews [summ rev]?");
                 Console.Write("<input> ");
                 input = Console.ReadLine().ToLower();
+                log.Info(input);
                 while(input != "all" && input != "rev" && input != "summ"
                     && input != "summ rev" && input != "quit")
                 {
                     Console.WriteLine($"[{input}] is invalid. Choose [all], [rev], [summ], [summ rev] or [quit].");
                     Console.Write("<input> ");
                     input = Console.ReadLine().ToLower();
+                    log.Info(input);
                 }
                 switch (input)
                 {
@@ -108,12 +118,14 @@ namespace LocalGourmet.PL
                     " [rating] descending?");
                 Console.Write("<input> ");
                 input = Console.ReadLine().ToLower();
+                log.Info(input);
                 while(input != "name" && input != "cuisine" && input != "rating"
                     && input != "quit")
                 {
                     Console.WriteLine($"[{input}] is invalid. Choose [name], [cuisine], [rating] or [quit].");
                     Console.Write("<input> ");
                     input = Console.ReadLine().ToLower();
+                    log.Info(input);
                 }
                 switch(input)
                 {
@@ -200,6 +212,7 @@ namespace LocalGourmet.PL
                 Console.WriteLine("-----------------------------------------------------------------");
                 Console.WriteLine();
             }
+            log.Info("End session: " + System.DateTime.Now);
         }
 
         public static void DisplayWithAllInfo(List<Restaurant> list)
