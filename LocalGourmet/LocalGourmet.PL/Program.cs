@@ -16,9 +16,16 @@ namespace LocalGourmet.PL
     {
         public static void Main(string[] args)
         {
+            RestaurantAccessor restaurantCRUD = new RestaurantAccessor();
+            List<Restaurant> rests = Restaurant.GetAll();
+            foreach (var r in rests)
+            {
+                if(r.Name == "Subway") { continue; }
+                restaurantCRUD.AddRestaurantAsync(r);
+            }
+
             Logger log = LogManager.GetLogger("file");
             log.Info("Start session: " + System.DateTime.Now);
-            RestaurantAccessor restaurantCRUD = new RestaurantAccessor();
 
             // Start Console UI
             Console.WriteLine("Local Gourmet App");

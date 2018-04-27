@@ -5,64 +5,6 @@
     "Location": "14961 N Florida Ave, Suite 14961, Florida Crossing Shopping Cntr, Tampa, FL 33613, USA",
     "Name": "Subway",
     "PhoneNumber": "(813) 963-2670",
-    "Reviews": [
-      {
-        "atmosphereRating": 5,
-        "Comment": "Great!",
-        "foodRating": 5,
-        "priceRating": 5,
-        "ReviewerName": "James Smith",
-        "serviceRating": 5
-      },
-      {
-        "atmosphereRating": 5,
-        "Comment": "Wow!",
-        "foodRating": 5,
-        "priceRating": 5,
-        "ReviewerName": "Mary Smith",
-        "serviceRating": 5
-      },
-      {
-        "atmosphereRating": 2,
-        "Comment": "Great!",
-        "foodRating": 1,
-        "priceRating": 3,
-        "ReviewerName": "Alice Jenkins",
-        "serviceRating": 4
-      },
-      {
-        "atmosphereRating": 1,
-        "Comment": "I'm never going there again!",
-        "foodRating": 1,
-        "priceRating": 1,
-        "ReviewerName": "Quayle Markson",
-        "serviceRating": 1
-      },
-      {
-        "atmosphereRating": 4,
-        "Comment": "Great!",
-        "foodRating": 5,
-        "priceRating": 4,
-        "ReviewerName": "Terrance Ali",
-        "serviceRating": 5
-      },
-      {
-        "atmosphereRating": 2,
-        "Comment": "Great!",
-        "foodRating": 4,
-        "priceRating": 3,
-        "ReviewerName": "Steven Jones",
-        "serviceRating": 5
-      },
-      {
-        "atmosphereRating": 3,
-        "Comment": "Pretty good",
-        "foodRating": 4,
-        "priceRating": 2,
-        "ReviewerName": "Sarah White",
-        "serviceRating": 5
-      }
-    ],
     "Type": "Fast Food",
     "Specialty": "Subs",
     "WebAddress": "www.subway.com"
@@ -73,48 +15,6 @@
     "Location": "109 Gulf Blvd, Indian Rocks Beach, FL 33785, USA",
     "Name": "Villa Gallace",
     "PhoneNumber": "(727) 596-0200",
-    "Reviews": [
-      {
-        "atmosphereRating": 5,
-        "Comment": "Great!",
-        "foodRating": 5,
-        "priceRating": 5,
-        "ReviewerName": "X",
-        "serviceRating": 5
-      },
-      {
-        "atmosphereRating": 4,
-        "Comment": "Good!",
-        "foodRating": 4,
-        "priceRating": 4,
-        "ReviewerName": "Michael Henderson",
-        "serviceRating": 4
-      },
-      {
-        "atmosphereRating": 5,
-        "Comment": "Still Great!",
-        "foodRating": 5,
-        "priceRating": 5,
-        "ReviewerName": "X",
-        "serviceRating": 5
-      },
-      {
-        "atmosphereRating": 3,
-        "Comment": "Okay",
-        "foodRating": 3,
-        "priceRating": 3,
-        "ReviewerName": "Ms. Alison",
-        "serviceRating": 3
-      },
-      {
-        "atmosphereRating": 5,
-        "Comment": "Great as always!",
-        "foodRating": 5,
-        "priceRating": 5,
-        "ReviewerName": "X",
-        "serviceRating": 5
-      }
-    ],
     "Type": "Fine Restaurant",
     "Specialty": "Pasta",
     "WebAddress": "www.villagallace.com"

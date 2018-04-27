@@ -35,9 +35,23 @@ namespace LocalGourmet.DAL
 
         public static BLL.Models.Restaurant DataToLibrary(DL.Restaurant dataModel)
         {
+            int restID = dataModel.ID;
+            // Get a list of all reviews where RestaurantID == restID
+            // Call ReviewAccessor's DataToLibrary function on those reviews
+            // Put them all in a list
+            // assign that list to the new Rest. model's review list.
+
+
             var libModel = new BLL.Models.Restaurant()
             {
-                Name = dataModel.Name
+                Name = dataModel.Name,
+                Location = dataModel.Location,
+                Cuisine = dataModel.Cuisine,
+                Specialty = dataModel.Specialty,
+                PhoneNumber = dataModel.PhoneNumber,
+                WebAddress = dataModel.WebAddress,
+                Type = dataModel.Type,
+                Hours = dataModel.Hours
             };
             return libModel;
         }
@@ -47,6 +61,13 @@ namespace LocalGourmet.DAL
             var dataModel = new DL.Restaurant();
             {
                 dataModel.Name = libModel.Name;
+                dataModel.Location = libModel.Location;
+                dataModel.Cuisine = libModel.Cuisine;
+                dataModel.Specialty = libModel.Specialty;
+                dataModel.PhoneNumber = libModel.PhoneNumber;
+                dataModel.WebAddress = libModel.WebAddress;
+                dataModel.Type = libModel.Type;
+                dataModel.Hours = libModel.Hours;
             };
             return dataModel;
         }
