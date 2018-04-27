@@ -14,7 +14,6 @@ namespace LocalGourmet.BLL.UnitTest
         {
             Restaurant r = new Restaurant();
             r.Name = "Subway";
-            r.ID = 1;
             r.Location = "14961 N Florida Ave, Suite 14961, Florida " +
                 "Crossing Shopping Cntr, Tampa, FL 33613, USA";
             r.Cuisine = "American";
@@ -32,7 +31,6 @@ namespace LocalGourmet.BLL.UnitTest
 
             Restaurant r2 = new Restaurant();
             r2.Name = "Villa Gallace";
-            r2.ID = 2;
             r2.Location = "109 Gulf Blvd, Indian Rocks Beach, FL 33785, USA";
             r2.Cuisine = "Italian";
             r2.PhoneNumber = "(727) 596-0200";
@@ -42,7 +40,6 @@ namespace LocalGourmet.BLL.UnitTest
 
             Restaurant r3 = new Restaurant();
             r3.Name = "Three Coins Diner";
-            r3.ID = 3;
             r3.Location = "7410 N Nebraska Ave, Tampa, FL 33604, USA";
             r3.Cuisine = "American";
             r3.PhoneNumber = "(813) 239-1256";
@@ -70,7 +67,6 @@ namespace LocalGourmet.BLL.UnitTest
         {
             Restaurant r = new Restaurant();
             r.Name = "Subway";
-            r.ID = 1;
             r.Location = "14961 N Florida Ave, Suite 14961, Florida " +
                 "Crossing Shopping Cntr, Tampa, FL 33613, USA";
             r.Cuisine = "American";
@@ -88,7 +84,6 @@ namespace LocalGourmet.BLL.UnitTest
 
             Restaurant r2 = new Restaurant();
             r2.Name = "Villa Gallace";
-            r2.ID = 2;
             r2.Location = "109 Gulf Blvd, Indian Rocks Beach, FL 33785, USA";
             r2.Cuisine = "Italian";
             r2.PhoneNumber = "(727) 596-0200";
@@ -98,7 +93,6 @@ namespace LocalGourmet.BLL.UnitTest
 
             Restaurant r3 = new Restaurant();
             r3.Name = "Three Coins Diner";
-            r3.ID = 3;
             r3.Location = "7410 N Nebraska Ave, Tampa, FL 33604, USA";
             r3.Cuisine = "American";
             r3.PhoneNumber = "(813) 239-1256";

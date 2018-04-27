@@ -112,8 +112,6 @@ namespace LocalGourmet.BLL.Models
         }
 
         [DataMember]
-        public int ID { get; set; }
-        [DataMember]
         public string Comment { get; set; } 
         [DataMember]
         public string ReviewerName { get; set; } 

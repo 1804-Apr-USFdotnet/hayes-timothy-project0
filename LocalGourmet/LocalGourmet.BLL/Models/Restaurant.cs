@@ -18,8 +18,6 @@ namespace LocalGourmet.BLL.Models
         }
 
         [DataMember]
-        public int ID { get; set; }
-        [DataMember]
         public string Name { get; set; } 
         [DataMember]
         public string Location { get; set; }
@@ -167,14 +165,14 @@ namespace LocalGourmet.BLL.Models
         // Return summary of info
         public string GetSummary()
         {
-            return $"{Name}, {ID}, {Cuisine}, {Reviews.Count} Reviews, " +
+            return $"{Name}, {Cuisine}, {Reviews.Count} Reviews, " +
                 $"{Type}, AvgRating: {GetAvgRating()}";
         }
 
         // Return all info
         public override string ToString()
         {
-            return $"{Name}, {ID}, {Cuisine}, {Type}, {Specialty}, " +
+            return $"{Name}, {Cuisine}, {Type}, {Specialty}, " +
                 $"AvgRating: {GetAvgRating()}, {Reviews.Count} Reviews, " +
                 $"{Location}, {PhoneNumber}, {WebAddress}, {Hours}";
         }

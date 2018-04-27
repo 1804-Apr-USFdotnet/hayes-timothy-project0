@@ -9,7 +9,6 @@ namespace LocalGourmet.BLL.Interfaces
 {
     interface IRestaurant
     {
-        int ID { get; set; }
         string Name { get; set; }
         string Location { get; set; }
         string Cuisine { get; set; } // Examples: Italian, French, Indian, ...
