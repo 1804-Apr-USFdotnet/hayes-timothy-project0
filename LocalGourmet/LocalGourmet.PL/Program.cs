@@ -15,7 +15,6 @@ namespace LocalGourmet.PL
             // Start Console UI
             Console.WriteLine("Local Gourmet App");
             Console.WriteLine("-----------------");
-            Console.WriteLine("                 ");
 
             string input = "";
             List<Restaurant> restaurants = null;
@@ -24,11 +23,20 @@ namespace LocalGourmet.PL
 
             while(input != "quit")
             {
+                Console.WriteLine();
                 Console.WriteLine("Type [quit] at any time");
                 Console.WriteLine("Do you want to view information from [all] " +
                     "restaurants, only the [top3], or [search] by name?");
+                Console.WriteLine();
                 Console.Write("<input> ");
                 input = Console.ReadLine().ToLower();
+                while(input != "all" && input != "top3" && input != "search"
+                    && input != "quit")
+                {
+                    Console.WriteLine($"[{input}] is invalid. Choose [all], [top3], [search] or [quit].");
+                    Console.Write("<input> ");
+                    input = Console.ReadLine().ToLower();
+                }
                 switch(input)
                 {
                     case "all":
@@ -39,6 +47,13 @@ namespace LocalGourmet.PL
                         break;
                     case "search":
                         restaurants = Restaurant.SearchByName(Restaurant.GetAll());
+                        Console.WriteLine("------------------------------");
+                        Console.WriteLine(restaurants.Count + " matches:");
+                        Console.WriteLine("------------------------------");
+                        foreach (Restaurant r in restaurants)
+                        {
+                            Console.WriteLine(r.Name);
+                        }
                         break;
                     case "quit":
                         break;
@@ -52,11 +67,19 @@ namespace LocalGourmet.PL
                     continue;
                 }
 
+                Console.WriteLine();
                 Console.WriteLine("Do you want to view [all] restaurant info, " +
                     "all info with [rev]iews, [summ]arized info, or " +
                     "summarized info with reviews [summ rev]?");
                 Console.Write("<input> ");
                 input = Console.ReadLine().ToLower();
+                while(input != "all" && input != "rev" && input != "summ"
+                    && input != "summ rev" && input != "quit")
+                {
+                    Console.WriteLine($"[{input}] is invalid. Choose [all], [rev], [summ], [summ rev] or [quit].");
+                    Console.Write("<input> ");
+                    input = Console.ReadLine().ToLower();
+                }
                 switch (input)
                 {
                     case "all":
@@ -76,11 +99,19 @@ namespace LocalGourmet.PL
                 }
                 if(input=="quit") { break; }
 
+                Console.WriteLine();
                 Console.WriteLine("Do you want to sort by [name] ascending," +
                     " sort by [cuisine] ascending, or sort by average" +
                     " [rating] descending?");
                 Console.Write("<input> ");
                 input = Console.ReadLine().ToLower();
+                while(input != "name" && input != "cuisine" && input != "rating"
+                    && input != "quit")
+                {
+                    Console.WriteLine($"[{input}] is invalid. Choose [name], [cuisine], [rating] or [quit].");
+                    Console.Write("<input> ");
+                    input = Console.ReadLine().ToLower();
+                }
                 switch(input)
                 {
                     case "name":
@@ -97,6 +128,10 @@ namespace LocalGourmet.PL
                 }
                 if(input=="quit") { break; }
 
+                Console.WriteLine();
+                Console.WriteLine("-----------------------------------------------------------------");
+                Console.WriteLine("-----------------------------------------------------------------");
+                Console.WriteLine();
                 // Perform command
                 switch(howMuchInfo)
                 {
@@ -157,6 +192,10 @@ namespace LocalGourmet.PL
                         }
                         break;
                 }
+                Console.WriteLine();
+                Console.WriteLine("-----------------------------------------------------------------");
+                Console.WriteLine("-----------------------------------------------------------------");
+                Console.WriteLine();
             }
         }
 
