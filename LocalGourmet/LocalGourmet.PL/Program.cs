@@ -2,6 +2,7 @@
 using NLog.Config;
 using NLog.Targets;
 using LocalGourmet.BLL.Models;
+using LocalGourmet.DAL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,7 @@ namespace LocalGourmet.PL
         {
             Logger log = LogManager.GetLogger("file");
             log.Info("Start session: " + System.DateTime.Now);
+            RestaurantAccessor restaurantCRUD = new RestaurantAccessor();
 
             // Start Console UI
             Console.WriteLine("Local Gourmet App");
@@ -49,7 +51,8 @@ namespace LocalGourmet.PL
                 switch(input)
                 {
                     case "all":
-                        restaurants = Restaurant.GetAll();
+                        //restaurants = Restaurant.GetAll();
+                        restaurants = restaurantCRUD.GetRestaurants().ToList();
                         break;
                     case "top3":
                         restaurants = Restaurant.GetTop3();

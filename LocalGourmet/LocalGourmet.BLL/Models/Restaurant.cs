@@ -109,7 +109,7 @@ namespace LocalGourmet.BLL.Models
         public static List<Restaurant> GetAll()
         {
             List<Restaurant> restaurants = new List<Restaurant>();
-            string json = System.IO.File.ReadAllText(@"C:\revature\" + 
+            string json = System.IO.File.ReadAllText(@"C:\revature\" +
                 @"hayes-timothy-project0\LocalGourmet\LocalGourmet.BLL\" +
                 @"Configs\Restaurants.json");
             restaurants = Serializer.Deserialize<List<Restaurant>>(json);

@@ -20,3 +20,7 @@
 [rating]
 [quit]
 [End session: 4/27/2018 3:35:08 PM]
+[Start session: 4/27/2018 4:56:31 PM]
+[all]
+[Start session: 4/27/2018 5:04:09 PM]
+[all]
