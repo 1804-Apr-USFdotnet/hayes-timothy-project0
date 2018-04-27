@@ -22,7 +22,7 @@ namespace LocalGourmet.PL
             Console.WriteLine("                 ");
 
             string input = "help";
-            while(input != "quit")
+            while(input != "quit" && input != "q")
             {
                 // Perform command
                 switch(input)
@@ -55,6 +55,19 @@ namespace LocalGourmet.PL
                     case "t3sr":
                         DisplaySummarizedWithReviews(top3);
                         break;
+                    case "search":
+                    case "s":
+                        List<Restaurant> matches = Restaurant.SearchByName(restaurants);
+                        if (matches.Count == 0)
+                        {
+                            Console.WriteLine("No Matches.");
+                            Console.WriteLine();
+                        }
+                        else
+                        {
+                            DisplaySummarized(matches);
+                        }
+                        break;
                 }
 
 
@@ -86,7 +99,8 @@ namespace LocalGourmet.PL
             Console.WriteLine("top3 sum [t3s]          -- display summarized info for top3 restaurants");
             Console.WriteLine("all sum rev [asr]       -- display summarized info and reviews for all restaurants");
             Console.WriteLine("top3 sum rev [t3sr]     -- display summarized info and reviews for top3 restaurants");
-            Console.WriteLine("quit                    -- quit the application");
+            Console.WriteLine("search [s]              -- search by restaurant name and display summarized info of matching restaurants");
+            Console.WriteLine("quit [q]                -- quit the application");
             Console.WriteLine();
         }
 
@@ -94,21 +108,15 @@ namespace LocalGourmet.PL
         {
             switch(input)
             {
-                case "help":
-                case "h":
-                case "all":
-                case "a":
-                case "top3":
-                case "t3":
-                case "all sum":
-                case "as":
-                case "top3 sum":
-                case "t3s":
-                case "all sum rev":
-                case "asr":
-                case "top3 sum rev":
-                case "t3sr":
-                case "quit":
+                case "help":         case "h":
+                case "all":          case "a":
+                case "top3":         case "t3":
+                case "all sum":      case "as":
+                case "top3 sum":     case "t3s":
+                case "all sum rev":  case "asr":
+                case "top3 sum rev": case "t3sr":
+                case "search":       case "s":
+                case "quit":         case "q":
                     return true;
                 default:
                     return false;

@@ -131,11 +131,21 @@ namespace LocalGourmet.BLL.Models
             return list.OrderBy(x => x.Cuisine).ToList();
         }
 
+        // Helper Search method for use with console UI
+        public static List<Restaurant> SearchByName(List<Restaurant> list)
+        {
+            Console.WriteLine("Enter (partial) restaurant name:");
+            Console.Write("<input> ");
+            string search = Console.ReadLine();
+            return Restaurant.SearchByName(list, search);
+        }
+
         // Return a list of all restaurants whose names were partially
         // matched by the search string.
         public static List<Restaurant> SearchByName(List<Restaurant> list, string search)
         {
             List<Restaurant> matches = new List<Restaurant>();
+            if (search == "") { return matches; } // return with zero matches
             var result = (from r in list
                           where r.Name.ToLower().Contains(search.ToLower())
                           select r).ToList();
