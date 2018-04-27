@@ -74,7 +74,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Connections.config" />
+    <None Include="Connections.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
     <EntityDeploy Include="RestaurantModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
