@@ -12,114 +12,151 @@ namespace LocalGourmet.PL
     {
         public static void Main(string[] args)
         {
-            // Deserialize Restaurants
-            List<Restaurant> restaurants = Restaurant.GetAll();
-            List<Restaurant> top3 = Restaurant.GetTop3();
-
             // Start Console UI
             Console.WriteLine("Local Gourmet App");
             Console.WriteLine("-----------------");
             Console.WriteLine("                 ");
 
-            string input = "help";
-            while(input != "quit" && input != "q")
+            string input = "";
+            List<Restaurant> restaurants = null;
+            string howMuchInfo = "";
+            string ordering = "";
+
+            while(input != "quit")
             {
-                // Perform command
-                switch(input)
-                {
-                    case "help":
-                    case "h":
-                        Help();
-                        break;
-                    case "all":
-                    case "a":
-                        DisplayWithAllInfo(restaurants);
-                        break;
-                    case "top3":
-                    case "t3":
-                        DisplayWithAllInfo(top3);
-                        break;
-                    case "all sum":
-                    case "as":
-                        DisplaySummarized(restaurants);
-                        break;
-                    case "top3 sum":
-                    case "t3s":
-                        DisplaySummarized(top3);
-                        break;
-                    case "all sum rev":
-                    case "asr":
-                        DisplaySummarizedWithReviews(restaurants);
-                        break;
-                    case "top3 sum rev":
-                    case "t3sr":
-                        DisplaySummarizedWithReviews(top3);
-                        break;
-                    case "search":
-                    case "s":
-                        List<Restaurant> matches = Restaurant.SearchByName(restaurants);
-                        if (matches.Count == 0)
-                        {
-                            Console.WriteLine("No Matches.");
-                            Console.WriteLine();
-                        }
-                        else
-                        {
-                            DisplaySummarized(matches);
-                        }
-                        break;
-                }
-
-
-                // Get next command
+                Console.WriteLine("Type [quit] at any time");
+                Console.WriteLine("Do you want to view information from [all] " +
+                    "restaurants, only the [top3], or [search] by name?");
                 Console.Write("<input> ");
                 input = Console.ReadLine().ToLower();
-                if(!Valid(input))
+                switch(input)
                 {
-                    Console.WriteLine($"[{input}] is an invalid command.");
-                    input = "help";
+                    case "all":
+                        restaurants = Restaurant.GetAll();
+                        break;
+                    case "top3":
+                        restaurants = Restaurant.GetTop3();
+                        break;
+                    case "search":
+                        restaurants = Restaurant.SearchByName(Restaurant.GetAll());
+                        break;
+                    case "quit":
+                        break;
                 }
-            }
+                if(input=="quit") { break; }
 
+                if(restaurants is null || restaurants.Count == 0)
+                {
+                    Console.WriteLine("No restaurants found.");
+                    input = "";
+                    continue;
+                }
 
+                Console.WriteLine("Do you want to view [all] restaurant info, " +
+                    "all info with [rev]iews, [summ]arized info, or " +
+                    "summarized info with reviews [summ rev]?");
+                Console.Write("<input> ");
+                input = Console.ReadLine().ToLower();
+                switch (input)
+                {
+                    case "all":
+                        howMuchInfo = "all";
+                        break;
+                    case "rev":
+                        howMuchInfo = "rev";
+                        break;
+                    case "summ":
+                        howMuchInfo = "summ";
+                        break;
+                    case "summ rev":
+                        howMuchInfo = "summ rev";
+                        break;
+                    case "quit":
+                        break;
+                }
+                if(input=="quit") { break; }
 
-            //List<Restaurant> sorted = Restaurant.SortByNameAsc();
-            //List<Restaurant> sorted = Restaurant.SortByCuisineAsc();
-            //List<Restaurant> sorted = Restaurant.SortByAvgRatingDesc();
-        }
+                Console.WriteLine("Do you want to sort by [name] ascending," +
+                    " sort by [cuisine] ascending, or sort by average" +
+                    " [rating] descending?");
+                Console.Write("<input> ");
+                input = Console.ReadLine().ToLower();
+                switch(input)
+                {
+                    case "name":
+                        ordering = "name";
+                        break;
+                    case "cuisine":
+                        ordering = "cuisine";
+                        break;
+                    case "rating":
+                        ordering = "rating";
+                        break;
+                    case "quit":
+                        break;
+                }
+                if(input=="quit") { break; }
 
-        static void Help()
-        {
-            Console.WriteLine("List of commands:");
-            Console.WriteLine("-------------------------------------------");
-            Console.WriteLine("help [h]                -- display all commands");
-            Console.WriteLine("all [a]                 -- display all info for all restaurants");
-            Console.WriteLine("top3 [t3]               -- display all info for top3 restaurants");
-            Console.WriteLine("all sum [as]            -- display summarized info for all restaurants");
-            Console.WriteLine("top3 sum [t3s]          -- display summarized info for top3 restaurants");
-            Console.WriteLine("all sum rev [asr]       -- display summarized info and reviews for all restaurants");
-            Console.WriteLine("top3 sum rev [t3sr]     -- display summarized info and reviews for top3 restaurants");
-            Console.WriteLine("search [s]              -- search by restaurant name and display summarized info of matching restaurants");
-            Console.WriteLine("quit [q]                -- quit the application");
-            Console.WriteLine();
-        }
-
-        static bool Valid(string input)
-        {
-            switch(input)
-            {
-                case "help":         case "h":
-                case "all":          case "a":
-                case "top3":         case "t3":
-                case "all sum":      case "as":
-                case "top3 sum":     case "t3s":
-                case "all sum rev":  case "asr":
-                case "top3 sum rev": case "t3sr":
-                case "search":       case "s":
-                case "quit":         case "q":
-                    return true;
-                default:
-                    return false;
+                // Perform command
+                switch(howMuchInfo)
+                {
+                    case "all":
+                        switch(ordering)
+                        {
+                            case "name":
+                                DisplayWithAllInfo(Restaurant.SortByNameAsc(restaurants));
+                                break;
+                            case "cuisine":
+                                DisplayWithAllInfo(Restaurant.SortByCuisineAsc(restaurants));
+                                break;
+                            case "rating":
+                                DisplayWithAllInfo(Restaurant.SortByAvgRatingDesc(restaurants));
+                                break;
+                        }
+                        break;
+                    case "rev":
+                        switch(ordering)
+                        {
+                            case "name":
+                                DisplayAllInfoWithReviews(Restaurant.SortByNameAsc(restaurants));
+                                break;
+                            case "cuisine":
+                                DisplayAllInfoWithReviews(Restaurant.SortByCuisineAsc(restaurants));
+                                break;
+                            case "rating":
+                                DisplayAllInfoWithReviews(Restaurant.SortByAvgRatingDesc(restaurants));
+                                break;
+                        }
+                        break;
+                    case "summ":
+                        switch(ordering)
+                        {
+                            case "name":
+                                DisplaySummarized(Restaurant.SortByNameAsc(restaurants));
+                                break;
+                            case "cuisine":
+                                DisplaySummarized(Restaurant.SortByCuisineAsc(restaurants));
+                                break;
+                            case "rating":
+                                DisplaySummarized(Restaurant.SortByAvgRatingDesc(restaurants));
+                                break;
+                        }
+                        break;
+                    case "summ rev":
+                        switch(ordering)
+                        {
+                            case "name":
+                                DisplaySummarizedWithReviews(Restaurant.SortByNameAsc(restaurants));
+                                break;
+                            case "cuisine":
+                                DisplaySummarizedWithReviews(Restaurant.SortByCuisineAsc(restaurants));
+                                break;
+                            case "rating":
+                                DisplaySummarizedWithReviews(Restaurant.SortByAvgRatingDesc(restaurants));
+                                break;
+                        }
+                        break;
+                }
             }
         }
 
@@ -146,6 +183,20 @@ namespace LocalGourmet.PL
             foreach (var restaurant in list)
             {
                 Console.WriteLine(restaurant.GetSummary());
+                List<Review> reviews = restaurant.Reviews;
+                foreach (var r in reviews)
+                {
+                    Console.WriteLine(r);
+                }
+                Console.WriteLine();
+            }
+        }
+
+        public static void DisplayAllInfoWithReviews(List<Restaurant> list)
+        {
+            foreach (var restaurant in list)
+            {
+                Console.WriteLine(restaurant);
                 List<Review> reviews = restaurant.Reviews;
                 foreach (var r in reviews)
                 {
