@@ -21,6 +21,7 @@ namespace LocalGourmet.PL
             string howMuchInfo = "";
             string ordering = "";
 
+            // Choose initial restaurant list
             while(input != "quit")
             {
                 Console.WriteLine();
@@ -67,6 +68,7 @@ namespace LocalGourmet.PL
                     continue;
                 }
 
+                // Choose how much info to see for each restaurant
                 Console.WriteLine();
                 Console.WriteLine("Do you want to view [all] restaurant info, " +
                     "all info with [rev]iews, [summ]arized info, or " +
@@ -99,6 +101,7 @@ namespace LocalGourmet.PL
                 }
                 if(input=="quit") { break; }
 
+                // Choose how to sort the restaurants
                 Console.WriteLine();
                 Console.WriteLine("Do you want to sort by [name] ascending," +
                     " sort by [cuisine] ascending, or sort by average" +
