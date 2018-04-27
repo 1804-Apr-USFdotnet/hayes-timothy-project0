@@ -39,18 +39,20 @@ namespace LocalGourmet.PL
                     case "t3":
                         DisplayWithAllInfo(top3);
                         break;
-                    case "summary all":
-                    case "sa":
+                    case "all sum":
+                    case "as":
                         DisplaySummarized(restaurants);
                         break;
-                    case "summary top3":
-                    case "st3":
+                    case "top3 sum":
+                    case "t3s":
                         DisplaySummarized(top3);
                         break;
-                    case "ar":
+                    case "all sum rev":
+                    case "asr":
                         DisplaySummarizedWithReviews(restaurants);
                         break;
-                    case "t3r":
+                    case "top3 sum rev":
+                    case "t3sr":
                         DisplaySummarizedWithReviews(top3);
                         break;
                 }
@@ -77,14 +79,14 @@ namespace LocalGourmet.PL
         {
             Console.WriteLine("List of commands:");
             Console.WriteLine("-------------------------------------------");
-            Console.WriteLine("help         -- display all commands");
-            Console.WriteLine("all          -- display all info for all restaurants");
-            Console.WriteLine("top3         -- display all info for top3 restaurants");
-            Console.WriteLine("summary all  -- display summarized info for all restaurants");
-            Console.WriteLine("summary top3 -- display summarized info for top3 restaurants");
-            Console.WriteLine("all rev      -- display summarized info and reviews for all restaurants");
-            Console.WriteLine("top3 rev     -- display summarized info and reviews for top3 restaurants");
-            Console.WriteLine("quit         -- quit the application");
+            Console.WriteLine("help [h]                -- display all commands");
+            Console.WriteLine("all [a]                 -- display all info for all restaurants");
+            Console.WriteLine("top3 [t3]               -- display all info for top3 restaurants");
+            Console.WriteLine("all sum [as]            -- display summarized info for all restaurants");
+            Console.WriteLine("top3 sum [t3s]          -- display summarized info for top3 restaurants");
+            Console.WriteLine("all sum rev [asr]       -- display summarized info and reviews for all restaurants");
+            Console.WriteLine("top3 sum rev [t3sr]     -- display summarized info and reviews for top3 restaurants");
+            Console.WriteLine("quit                    -- quit the application");
             Console.WriteLine();
         }
 
@@ -93,12 +95,19 @@ namespace LocalGourmet.PL
             switch(input)
             {
                 case "help":
+                case "h":
                 case "all":
+                case "a":
                 case "top3":
-                case "summary all":
-                case "summary top3":
-                case "all rev":
-                case "top3 rev":
+                case "t3":
+                case "all sum":
+                case "as":
+                case "top3 sum":
+                case "t3s":
+                case "all sum rev":
+                case "asr":
+                case "top3 sum rev":
+                case "t3sr":
                 case "quit":
                     return true;
                 default:

@@ -156,15 +156,15 @@ namespace LocalGourmet.BLL.Models
         public string GetSummary()
         {
             return $"{Name}, {Cuisine}, {Reviews.Count} Reviews, " +
-                $"{Type}, AvgRating: {GetAvgRating()}.";
+                $"{Type}, AvgRating: {GetAvgRating()}";
         }
 
         // Return all info
         public override string ToString()
         {
-            return $"{Name}, {Cuisine}, {Location}, {Specialty}, " +
-                $"{PhoneNumber}, {WebAddress}, {Hours}, " +
-                $"{Reviews.Count} Reviews, {Type}, AvgRating: {GetAvgRating()}.";
+            return $"{Name}, {Cuisine}, {Type}, {Specialty}, " +
+                $"AvgRating: {GetAvgRating()}, {Reviews.Count} Reviews, " +
+                $"{Location}, {PhoneNumber}, {WebAddress}, {Hours}";
         }
     }
 }
