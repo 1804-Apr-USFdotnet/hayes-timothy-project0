@@ -7,8 +7,59 @@ namespace LocalGourmet.PL
 {
     class Program
     {
+        public static void ReviewScript()
+        {
+            List<string> names = new List<string>();
+            string nameString = System.IO.File.ReadAllText(@"C:\Users\tjhay\Downloads\Names.txt");
+            System.IO.StringReader r = new System.IO.StringReader(nameString);
+            for(int i = 1; i <= 4945; i++)
+            {
+                names.Add(r.ReadLine());
+            }
+
+            Review r1 = new Review("", "I'm never coming here again!", 0, 0, 0, 0);
+            Review r2 = new Review("", "I'd rather eat bread and water.", 1, 0, 1, 0);
+            Review r3 = new Review("", "Bleh!", 1, 1, 1, 1);
+            Review r4 = new Review("", "I hope no one saw me eat here.", 1, 2, 1, 2);
+            Review r5 = new Review("", "Better than starving...", 2, 2, 2, 2);
+            Review r6 = new Review("", "At least it was cheap.", 2, 2, 3, 3);
+            Review r7 = new Review("", "I'd come here again.", 3, 3, 3, 4);
+            Review r8= new Review("", "I had great expectations...", 2, 3, 4, 4);
+            Review r9 = new Review("", "Wow!", 4, 4, 4, 4);
+            Review r10 = new Review("", "Best restaurant ever!", 5, 5, 4, 4);
+
+            List<Review> revs = new List<Review>();
+            revs.Add(r1);
+            revs.Add(r2);
+            revs.Add(r3);
+            revs.Add(r4);
+            revs.Add(r5);
+            revs.Add(r6);
+            revs.Add(r7);
+            revs.Add(r8);
+            revs.Add(r9);
+            revs.Add(r10);
+
+            int revIndex;
+            string firstName, lastName;
+            Random rnd = new Random();
+            List<Review> customReviews = new List<Review>();
+            for(int i = 0; i < 1000; i++)
+            {
+                revIndex = rnd.Next(10);
+                Review customRev = revs[revIndex];
+                firstName = names[rnd.Next(4945)];
+                lastName = names[rnd.Next(4945)];
+                customRev.ReviewerName = $"{firstName} {lastName}";
+                customRev.RestaurantID = rnd.Next(1, 11);
+
+            }
+
+        }
+
         public static void Main(string[] args)
         {
+            ReviewScript();
             //Restaurant z = Restaurant.GetRestaurantByID(1);
             //Console.WriteLine(z);
             //z.UpdateRestaurantAsync(z.Name, z.Location, "American", 
