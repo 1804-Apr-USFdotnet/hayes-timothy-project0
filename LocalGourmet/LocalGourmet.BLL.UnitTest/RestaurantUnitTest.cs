@@ -44,7 +44,7 @@ namespace LocalGourmet.BLL.UnitTest
             expected.Add(restaurants[1]);
             expected.Add(restaurants[2]);
             expected.Add(restaurants[7]);
-            List<Restaurant> actual = Restaurant.GetTop3();
+            List<Restaurant> actual = Restaurant.GetTop3(Restaurant.GetAll());
 
             // Assert
             Assert.AreEqual(expected[0].ToString(), actual[0].ToString());

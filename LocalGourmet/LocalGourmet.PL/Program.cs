@@ -46,7 +46,7 @@ namespace LocalGourmet.PL
                         restaurants = Restaurant.GetRestaurants();
                         break;
                     case "top3":
-                        restaurants = Restaurant.GetTop3();
+                        restaurants = Restaurant.GetTop3(Restaurant.GetRestaurants());
                         break;
                     case "search":
                         restaurants = Restaurant.SearchByName(Restaurant.GetRestaurants());

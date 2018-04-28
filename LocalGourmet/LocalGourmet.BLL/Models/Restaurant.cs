@@ -49,10 +49,9 @@ namespace LocalGourmet.BLL.Models
             return (float) Math.Round(rating, 2);
         }
 
-        public static List<Restaurant> GetTop3()
+        public static List<Restaurant> GetTop3(List<Restaurant> restaurants)
         {
             List<Restaurant> top3 = new List<Restaurant>();
-            List<Restaurant> restaurants = GetRestaurants();
             if(restaurants.Count < 3) { return restaurants; }
 
             float bestRating = 0.0f;
@@ -129,7 +128,7 @@ namespace LocalGourmet.BLL.Models
             List<Restaurant> restaurants = new List<Restaurant>();
             string json = System.IO.File.ReadAllText(@"C:\revature\" +
                 @"hayes-timothy-project0\LocalGourmet\LocalGourmet.BLL\" +
-                @"Configs\Restaurants.json");
+                @"Configs\RestaurantsForUnitTest2.json");
             restaurants = Serializer.Deserialize<List<Restaurant>>(json);
             return restaurants;
         }
