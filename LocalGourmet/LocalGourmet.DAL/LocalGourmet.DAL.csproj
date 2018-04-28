@@ -52,10 +52,6 @@
     <Compile Include="ReviewAccessor.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\LocalGourmet.BLL\LocalGourmet.BLL.csproj">
-      <Project>{58ab889c-8e77-4c7f-9d7d-1e8c075a324f}</Project>
-      <Name>LocalGourmet.BLL</Name>
-    </ProjectReference>
     <ProjectReference Include="..\LocalGourmet.DL\LocalGourmet.DL.csproj">
       <Project>{27b56838-0153-4910-9dc3-a32be1f2ec79}</Project>
       <Name>LocalGourmet.DL</Name>
@@ -63,6 +59,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Connections.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

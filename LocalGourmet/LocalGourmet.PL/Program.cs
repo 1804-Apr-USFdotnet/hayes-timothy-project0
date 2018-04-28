@@ -1,14 +1,7 @@
 ﻿using NLog;
-using NLog.Config;
-using NLog.Targets;
 using LocalGourmet.BLL.Models;
-using LocalGourmet.DAL;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Threading;
 
 namespace LocalGourmet.PL
 {
@@ -16,14 +9,6 @@ namespace LocalGourmet.PL
     {
         public static void Main(string[] args)
         {
-            RestaurantAccessor restaurantCRUD = new RestaurantAccessor();
-            List<Restaurant> rests = Restaurant.GetAll();
-            foreach (var r in rests)
-            {
-                if(r.Name == "Subway") { continue; }
-                restaurantCRUD.AddRestaurantAsync(r);
-            }
-
             Logger log = LogManager.GetLogger("file");
             log.Info("Start session: " + System.DateTime.Now);
 
@@ -58,14 +43,13 @@ namespace LocalGourmet.PL
                 switch(input)
                 {
                     case "all":
-                        //restaurants = Restaurant.GetAll();
-                        restaurants = restaurantCRUD.GetRestaurants().ToList();
+                        restaurants = Restaurant.GetRestaurants();
                         break;
                     case "top3":
                         restaurants = Restaurant.GetTop3();
                         break;
                     case "search":
-                        restaurants = Restaurant.SearchByName(Restaurant.GetAll());
+                        restaurants = Restaurant.SearchByName(Restaurant.GetRestaurants());
                         Console.WriteLine("------------------------------");
                         Console.WriteLine(restaurants.Count + " matches:");
                         Console.WriteLine("------------------------------");

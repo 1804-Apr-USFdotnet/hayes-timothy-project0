@@ -67,7 +67,16 @@
     </None>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\LocalGourmet.DAL\LocalGourmet.DAL.csproj">
+      <Project>{8ff291fb-5da7-4671-b28f-f11eb04f1bf5}</Project>
+      <Name>LocalGourmet.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LocalGourmet.DL\LocalGourmet.DL.csproj">
+      <Project>{27b56838-0153-4910-9dc3-a32be1f2ec79}</Project>
+      <Name>LocalGourmet.DL</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="Logs\ClientInputLog.txt" />
   </ItemGroup>

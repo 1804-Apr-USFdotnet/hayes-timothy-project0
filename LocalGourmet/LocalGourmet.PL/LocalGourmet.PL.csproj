@@ -78,10 +78,6 @@
       <Project>{58AB889C-8E77-4C7F-9D7D-1E8C075A324F}</Project>
       <Name>LocalGourmet.BLL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\LocalGourmet.DAL\LocalGourmet.DAL.csproj">
-      <Project>{8ff291fb-5da7-4671-b28f-f11eb04f1bf5}</Project>
-      <Name>LocalGourmet.DAL</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

@@ -2,10 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Runtime.Serialization;
-using System.Runtime.Serialization.Json;
+using LocalGourmet.DAL;
+using System.Threading.Tasks;
 
 namespace LocalGourmet.BLL.Models
 {
@@ -17,6 +16,7 @@ namespace LocalGourmet.BLL.Models
             Reviews = new List<Review>();
         }
 
+        #region Properties
         [DataMember]
         public string Name { get; set; } 
         [DataMember]
@@ -35,6 +35,7 @@ namespace LocalGourmet.BLL.Models
         public string Type { get; set; }
         [DataMember]
         public string Hours { get; set; }
+        #endregion
 
         public float GetAvgRating()
         {
@@ -51,20 +52,16 @@ namespace LocalGourmet.BLL.Models
         public static List<Restaurant> GetTop3()
         {
             List<Restaurant> top3 = new List<Restaurant>();
-
-            List<Restaurant> restaurants = new List<Restaurant>();
-            string json = System.IO.File.ReadAllText(@"C:\revature\" + 
-                @"hayes-timothy-project0\LocalGourmet\LocalGourmet.BLL\" +
-                @"Configs\Restaurants.json");
-            restaurants = Serializer.Deserialize<List<Restaurant>>(json);
+            List<Restaurant> restaurants = GetRestaurants();
+            if(restaurants.Count < 3) { return restaurants; }
 
             float bestRating = 0.0f;
             float secondBestRating = 0.0f;
             float thirdBestRating = 0.0f;
 
-            int bestIndex = -1;
-            int secondBestIndex = -1;
-            int thirdBestIndex = -1;
+            int bestIndex = 0;
+            int secondBestIndex = 1;
+            int thirdBestIndex = 2;
 
             int index = 0;
 
@@ -106,6 +103,27 @@ namespace LocalGourmet.BLL.Models
             return top3;
         }
 
+        #region CRUD
+        // CREATE
+        public async Task AddRestaurantAsync(BLL.Models.Restaurant r)
+        {
+            DL.Restaurant restaurant = LibraryToData(r);
+            RestaurantAccessor ra = new RestaurantAccessor();
+            await ra.AddRestaurantAsync(restaurant);
+        }
+
+        // READ
+        public static List<Restaurant> GetRestaurants()
+        {
+            RestaurantAccessor restaurantCRUD = new RestaurantAccessor();
+            List<DL.Restaurant> dataList = restaurantCRUD.GetRestaurants().ToList();
+            List<Restaurant> result = dataList.Select(x => DataToLibrary(x)).ToList();
+            return result;
+        }
+        #endregion
+
+
+        // Deprecated -- only use for serialization testing
         public static List<Restaurant> GetAll()
         {
             List<Restaurant> restaurants = new List<Restaurant>();
@@ -116,6 +134,7 @@ namespace LocalGourmet.BLL.Models
             return restaurants;
         }
 
+        #region Sort & Search
         public static List<Restaurant> SortByAvgRatingDesc(List<Restaurant> list)
         {
             return list.OrderByDescending(x => x.GetAvgRating()).ToList();
@@ -155,7 +174,9 @@ namespace LocalGourmet.BLL.Models
             }
             return matches;
         }
+        #endregion
 
+        #region ToString
         // Return name and rating only
         public string GetNameAndRating()
         {
@@ -175,6 +196,45 @@ namespace LocalGourmet.BLL.Models
             return $"{Name}, {Cuisine}, {Type}, {Specialty}, " +
                 $"AvgRating: {GetAvgRating()}, {Reviews.Count} Reviews, " +
                 $"{Location}, {PhoneNumber}, {WebAddress}, {Hours}";
+        }
+        #endregion
+
+        public static BLL.Models.Restaurant DataToLibrary(DL.Restaurant dataModel)
+        {
+            int restID = dataModel.ID;
+            // Get a list of all reviews where RestaurantID == restID
+            // Call ReviewAccessor's DataToLibrary function on those reviews
+            // Put them all in a list
+            // assign that list to the new Rest. model's review list.
+
+            var libModel = new BLL.Models.Restaurant()
+            {
+                Name = dataModel.Name,
+                Location = dataModel.Location,
+                Cuisine = dataModel.Cuisine,
+                Specialty = dataModel.Specialty,
+                PhoneNumber = dataModel.PhoneNumber,
+                WebAddress = dataModel.WebAddress,
+                Type = dataModel.Type,
+                Hours = dataModel.Hours
+            };
+            return libModel;
+        }
+
+        public static DL.Restaurant LibraryToData(BLL.Models.Restaurant libModel)
+        {
+            var dataModel = new DL.Restaurant();
+            {
+                dataModel.Name = libModel.Name;
+                dataModel.Location = libModel.Location;
+                dataModel.Cuisine = libModel.Cuisine;
+                dataModel.Specialty = libModel.Specialty;
+                dataModel.PhoneNumber = libModel.PhoneNumber;
+                dataModel.WebAddress = libModel.WebAddress;
+                dataModel.Type = libModel.Type;
+                dataModel.Hours = libModel.Hours;
+            };
+            return dataModel;
         }
     }
 }
