@@ -9,6 +9,13 @@ namespace LocalGourmet.PL
     {
         public static void Main(string[] args)
         {
+            Restaurant rest1 = Restaurant.GetRestaurantByID(1);
+            Console.WriteLine(rest1);
+            rest1.UpdateRestaurantAsync("Super Subway");
+            rest1 = Restaurant.GetRestaurantByID(1);
+            Console.WriteLine(rest1);
+
+
             Logger log = LogManager.GetLogger("file");
             log.Info("Start session: " + System.DateTime.Now);
 
