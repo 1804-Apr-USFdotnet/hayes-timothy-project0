@@ -150,19 +150,6 @@ namespace LocalGourmet.BLL.Models
             }
         }
 
-        public void UpdateRestaurant(string name)
-        {
-            RestaurantAccessor restaurantCRUD = new RestaurantAccessor();
-            try
-            {
-                restaurantCRUD.UpdateRestaurant(this.ID, name);
-            }
-            catch
-            {
-                throw;
-            }
-        }
-
         // DELETE
 
 

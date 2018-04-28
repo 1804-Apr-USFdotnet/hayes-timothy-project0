@@ -71,25 +71,6 @@ namespace LocalGourmet.DAL
             }
         }
 
-        public void UpdateRestaurant(int id, string name)
-        {
-            DL.Restaurant r;
-            try
-            {
-                using (var db = new LocalGourmetDBEntities())
-                {
-                    r = db.Restaurants.Find(id);
-                    if (r == null) { throw new ArgumentOutOfRangeException("id"); }
-                    r.Name = name; 
-                    db.SaveChanges();
-                }
-            }
-            catch
-            {
-                throw;
-            }
-        }
-
         // DELETE
 
 
