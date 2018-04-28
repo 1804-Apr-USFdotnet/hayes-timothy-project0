@@ -9,9 +9,10 @@ namespace LocalGourmet.PL
     {
         public static void Main(string[] args)
         {
+            // Test Update -- working
             Restaurant rest1 = Restaurant.GetRestaurantByID(1);
             Console.WriteLine(rest1);
-            rest1.UpdateRestaurantAsync("Super Subway");
+            rest1.UpdateRestaurantAsync("Subway");
             rest1 = Restaurant.GetRestaurantByID(1);
             Console.WriteLine(rest1);
 
