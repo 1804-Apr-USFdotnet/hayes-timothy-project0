@@ -151,14 +151,19 @@ namespace LocalGourmet.BLL.Models
         }
 
         // DELETE
-
-
+        public async Task DeleteRestaurantAsync()
+        {
+            RestaurantAccessor restaurantCRUD = new RestaurantAccessor();
+            try
+            {
+                await restaurantCRUD.DeleteRestaurantAsync(this.ID);
+            }
+            catch
+            {
+                throw;
+            }
+        }
         #endregion
-
-
-
-
-
 
         // Deprecated -- only use for serialization testing
         public static List<Restaurant> GetAll()

@@ -72,6 +72,24 @@ namespace LocalGourmet.DAL
         }
 
         // DELETE
+        public async Task DeleteRestaurantAsync(int id)
+        {
+            DL.Restaurant r;
+            try
+            {
+                using (var db = new LocalGourmetDBEntities())
+                {
+                    r = db.Restaurants.Find(id);
+                    if (r == null) { throw new ArgumentOutOfRangeException("id"); }
+                    db.Restaurants.Remove(r);
+                    await db.SaveChangesAsync();
+                }
+            }
+            catch
+            {
+                throw;
+            }
+        }
 
 
     }
