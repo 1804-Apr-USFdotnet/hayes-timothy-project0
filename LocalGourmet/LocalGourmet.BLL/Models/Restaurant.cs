@@ -51,8 +51,8 @@ namespace LocalGourmet.BLL.Models
 
         public static List<Restaurant> GetTop3(List<Restaurant> restaurants)
         {
+            if(restaurants == null || restaurants.Count < 3) { return restaurants; }
             List<Restaurant> top3 = new List<Restaurant>();
-            if(restaurants.Count < 3) { return restaurants; }
 
             float bestRating = 0.0f;
             float secondBestRating = 0.0f;
@@ -119,7 +119,29 @@ namespace LocalGourmet.BLL.Models
             List<Restaurant> result = dataList.Select(x => DataToLibrary(x)).ToList();
             return result;
         }
+
+        // UPDATE
+        public async Task UpdateRestaurantAsync(int id, string name)
+        {
+            RestaurantAccessor restaurantCRUD = new RestaurantAccessor();
+            try
+            {
+                await restaurantCRUD.UpdateRestaurantAsync(id, name);
+            }
+            catch(ArgumentOutOfRangeException e)
+            {
+                throw;
+            }
+        }
+
+        // DELETE
+
+
         #endregion
+
+
+
+
 
 
         // Deprecated -- only use for serialization testing
