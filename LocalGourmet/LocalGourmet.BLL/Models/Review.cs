@@ -12,6 +12,9 @@ namespace LocalGourmet.BLL.Models
     [DataContract]
     public class Review : IReview
     {
+        #region Constructors
+        public Review() { }
+
         public Review(string name, string comment)
         {
             ReviewerName = name;
@@ -60,7 +63,9 @@ namespace LocalGourmet.BLL.Models
             AtmosphereRating = atmosphereRat;
             PriceRating = priceRat;
         }
+        #endregion
 
+        #region Rating Components
         // Individual rating components
         [DataMember]
         private int foodRating;
@@ -110,7 +115,14 @@ namespace LocalGourmet.BLL.Models
                 priceRating = value < 0 ? 0 : (value > 5 ? 5 : value);
             }
         }
+        #endregion
 
+        public int RestaurantID { get; set; }
+        // ID indexing is handled by the data source.
+        // This ID Property is only for storing the ID when converting
+        // the object between layers. Do not set this when creating an
+        // object -- it will be ignored.
+        public int ID { get; set; }
         [DataMember]
         public string Comment { get; set; } 
         [DataMember]
@@ -131,5 +143,43 @@ namespace LocalGourmet.BLL.Models
                 $"{AtmosphereRating}, Price: {PriceRating}]";
         }
 
+        #region CRUD
+        #endregion
+
+        #region BLL-DL Mappers
+        public static BLL.Models.Review DataToLibrary(DL.Review dataModel)
+        {
+            int revID = dataModel.ID;
+
+            var libModel = new BLL.Models.Review()
+            {
+                ID = dataModel.ID,
+                RestaurantID = dataModel.RestaurantID,
+                ReviewerName = dataModel.ReviewerName,
+                Comment = dataModel.Comment,
+                FoodRating = dataModel.FoodRating,
+                ServiceRating = dataModel.ServiceRating,
+                AtmosphereRating = dataModel.AtmosphereRating,
+                PriceRating = dataModel.PriceRating
+            };
+            return libModel;
+        }
+
+        public static DL.Review LibraryToData(BLL.Models.Review libModel)
+        {
+            var dataModel = new DL.Review();
+            {
+                dataModel.ID = libModel.ID;
+                dataModel.RestaurantID = libModel.RestaurantID;
+                dataModel.ReviewerName = libModel.ReviewerName;
+                dataModel.Comment = libModel.Comment;
+                dataModel.FoodRating = libModel.FoodRating;
+                dataModel.ServiceRating = libModel.ServiceRating;
+                dataModel.AtmosphereRating = libModel.AtmosphereRating;
+                dataModel.PriceRating = libModel.PriceRating;
+            };
+            return dataModel;
+        }
+        #endregion
     }
 }

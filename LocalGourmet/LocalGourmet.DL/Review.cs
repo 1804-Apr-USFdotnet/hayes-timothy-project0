@@ -22,7 +22,6 @@ namespace LocalGourmet.DL
         public int AtmosphereRating { get; set; }
         public int PriceRating { get; set; }
         public int RestaurantID { get; set; }
-        public bool Active { get; set; }
     
         public virtual Restaurant Restaurant { get; set; }
     }

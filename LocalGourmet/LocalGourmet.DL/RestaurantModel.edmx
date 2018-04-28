@@ -32,7 +32,6 @@
           <Property Name="AtmosphereRating" Type="int" Nullable="false" />
           <Property Name="PriceRating" Type="int" Nullable="false" />
           <Property Name="RestaurantID" Type="int" Nullable="false" />
-          <Property Name="Active" Type="bit" Nullable="false" />
         </EntityType>
         <Association Name="FK_Review_Restaurant">
           <End Role="Restaurant" Type="Self.Restaurant" Multiplicity="1">
@@ -89,7 +88,6 @@
           <Property Name="PriceRating" Type="Int32" Nullable="false" />
           <Property Name="RestaurantID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Restaurant" Relationship="Self.FK_Review_Restaurant" FromRole="Review" ToRole="Restaurant" />
-          <Property Name="Active" Type="Boolean" Nullable="false" />
         </EntityType>
         <Association Name="FK_Review_Restaurant">
           <End Role="Restaurant" Type="Self.Restaurant" Multiplicity="1">
@@ -138,7 +136,6 @@
           <EntitySetMapping Name="Reviews">
             <EntityTypeMapping TypeName="LocalGourmetDBModel.Review">
               <MappingFragment StoreEntitySet="Review">
-                <ScalarProperty Name="Active" ColumnName="Active" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="ReviewerName" ColumnName="ReviewerName" />
                 <ScalarProperty Name="Comment" ColumnName="Comment" />

@@ -253,6 +253,7 @@ namespace LocalGourmet.BLL.Models
         }
         #endregion
 
+        #region BLL-DL Mappers
         public static BLL.Models.Restaurant DataToLibrary(DL.Restaurant dataModel)
         {
             int restID = dataModel.ID;
@@ -294,5 +295,6 @@ namespace LocalGourmet.BLL.Models
             };
             return dataModel;
         }
+        #endregion
     }
 }
