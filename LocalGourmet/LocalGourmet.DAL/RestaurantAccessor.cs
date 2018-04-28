@@ -21,16 +21,18 @@ namespace LocalGourmet.DAL
         }
 
         // READ
+        // Does not return inactive ("deleted") restaurants
         public IEnumerable<DL.Restaurant> GetRestaurants()
         {
             IEnumerable<DL.Restaurant> dataList;
             using (var db = new LocalGourmetDBEntities())
             {
-                dataList = db.Restaurants.ToList();
+                dataList = db.Restaurants.Where(x => x.Active == true ).ToList();
             }
             return dataList;
         }
 
+        // Does return inactive ("deleted") restaurants
         public DL.Restaurant GetRestaurantByID(int id)
         {
             DL.Restaurant r;

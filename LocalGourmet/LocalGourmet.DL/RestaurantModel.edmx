@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="LocalGourmetDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="LocalGourmetDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Restaurant">
           <Key>
             <PropertyRef Name="ID" />
@@ -18,6 +18,7 @@
           <Property Name="Hours" Type="nvarchar" MaxLength="255" />
           <Property Name="PhoneNumber" Type="nvarchar" MaxLength="14" />
           <Property Name="WebAddress" Type="nvarchar" MaxLength="50" />
+          <Property Name="Active" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Review">
           <Key>
@@ -31,6 +32,7 @@
           <Property Name="AtmosphereRating" Type="int" Nullable="false" />
           <Property Name="PriceRating" Type="int" Nullable="false" />
           <Property Name="RestaurantID" Type="int" Nullable="false" />
+          <Property Name="Active" Type="bit" Nullable="false" />
         </EntityType>
         <Association Name="FK_Review_Restaurant">
           <End Role="Restaurant" Type="Self.Restaurant" Multiplicity="1">
@@ -54,8 +56,7 @@
             <End Role="Review" EntitySet="Review" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="LocalGourmetDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -73,6 +74,7 @@
           <Property Name="PhoneNumber" Type="String" MaxLength="14" FixedLength="false" Unicode="true" />
           <Property Name="WebAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Reviews" Relationship="Self.FK_Review_Restaurant" FromRole="Restaurant" ToRole="Review" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="Review">
           <Key>
@@ -87,6 +89,7 @@
           <Property Name="PriceRating" Type="Int32" Nullable="false" />
           <Property Name="RestaurantID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Restaurant" Relationship="Self.FK_Review_Restaurant" FromRole="Review" ToRole="Restaurant" />
+          <Property Name="Active" Type="Boolean" Nullable="false" />
         </EntityType>
         <Association Name="FK_Review_Restaurant">
           <End Role="Restaurant" Type="Self.Restaurant" Multiplicity="1">
@@ -119,6 +122,7 @@
           <EntitySetMapping Name="Restaurants">
             <EntityTypeMapping TypeName="LocalGourmetDBModel.Restaurant">
               <MappingFragment StoreEntitySet="Restaurant">
+                <ScalarProperty Name="Active" ColumnName="Active" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Location" ColumnName="Location" />
@@ -134,6 +138,7 @@
           <EntitySetMapping Name="Reviews">
             <EntityTypeMapping TypeName="LocalGourmetDBModel.Review">
               <MappingFragment StoreEntitySet="Review">
+                <ScalarProperty Name="Active" ColumnName="Active" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="ReviewerName" ColumnName="ReviewerName" />
                 <ScalarProperty Name="Comment" ColumnName="Comment" />

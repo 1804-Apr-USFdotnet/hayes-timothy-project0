@@ -29,6 +29,7 @@ namespace LocalGourmet.DL
         public string Hours { get; set; }
         public string PhoneNumber { get; set; }
         public string WebAddress { get; set; }
+        public bool Active { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Review> Reviews { get; set; }
