@@ -7,7 +7,8 @@ namespace LocalGourmet.PL
 {
     class Program
     {
-        public static void ReviewScript()
+        // Returns a custom list of 1000 reviews, with Rest.ID's 1-10
+        public static List<Review> ReviewScript()
         {
             List<string> names = new List<string>();
             string nameString = System.IO.File.ReadAllText(@"C:\Users\tjhay\Downloads\Names.txt");
@@ -47,19 +48,26 @@ namespace LocalGourmet.PL
             for(int i = 0; i < 1000; i++)
             {
                 revIndex = rnd.Next(10);
-                Review customRev = revs[revIndex];
+                Review customRev = new Review();
+                Review q = revs[revIndex];
+                customRev.Comment = q.Comment;
+                customRev.FoodRating = q.FoodRating;
+                customRev.ServiceRating = q.ServiceRating;
+                customRev.AtmosphereRating = q.AtmosphereRating;
+                customRev.PriceRating = q.PriceRating;
                 firstName = names[rnd.Next(4945)];
                 lastName = names[rnd.Next(4945)];
                 customRev.ReviewerName = $"{firstName} {lastName}";
                 customRev.RestaurantID = rnd.Next(1, 11);
-
+                customReviews.Add(customRev);
             }
-
+            return customReviews;
         }
 
         public static void Main(string[] args)
         {
-            ReviewScript();
+            //List<Review> customReviews = ReviewScript();
+
             //Restaurant z = Restaurant.GetRestaurantByID(1);
             //Console.WriteLine(z);
             //z.UpdateRestaurantAsync(z.Name, z.Location, "American", 
