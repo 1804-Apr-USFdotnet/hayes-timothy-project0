@@ -104,9 +104,9 @@ namespace LocalGourmet.BLL.Models
 
         #region CRUD
         // CREATE
-        public async Task AddRestaurantAsync(BLL.Models.Restaurant r)
+        public async Task AddRestaurantAsync()
         {
-            DL.Restaurant restaurant = LibraryToData(r);
+            DL.Restaurant restaurant = LibraryToData(this);
             RestaurantAccessor ra = new RestaurantAccessor();
             await ra.AddRestaurantAsync(restaurant);
         }
@@ -120,6 +120,21 @@ namespace LocalGourmet.BLL.Models
             return result;
         }
 
+        public Restaurant GetRestaurantByID(int id)
+        {
+            RestaurantAccessor restaurantCRUD = new RestaurantAccessor();
+            Restaurant r;
+            try
+            {
+                r = DataToLibrary(restaurantCRUD.GetRestaurantByID(id));
+            }
+            catch
+            {
+                throw;
+            }
+            return r;
+        }
+        
         // UPDATE
         public async Task UpdateRestaurantAsync(int id, string name)
         {
@@ -128,7 +143,7 @@ namespace LocalGourmet.BLL.Models
             {
                 await restaurantCRUD.UpdateRestaurantAsync(id, name);
             }
-            catch(ArgumentOutOfRangeException e)
+            catch
             {
                 throw;
             }

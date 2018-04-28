@@ -33,24 +33,38 @@ namespace LocalGourmet.DAL
 
         public DL.Restaurant GetRestaurantByID(int id)
         {
-            return null;
+            DL.Restaurant r;
+            using (var db = new LocalGourmetDBEntities())
+            {
+                try
+                {
+                    r = db.Restaurants.Find(id);
+                }
+                catch
+                {
+                    throw;
+                }
+            }
+            if(r == null) { throw new ArgumentOutOfRangeException("id"); }
+            return r;
         }
         
         // UPDATE
         public async Task UpdateRestaurantAsync(int id, string name)
         {
-            DL.Restaurant r = GetRestaurantByID(id);
-            if(r == null)
+            DL.Restaurant r;
+            try
             {
-                throw new ArgumentOutOfRangeException("id");
+                r = GetRestaurantByID(id);
             }
-            else
+            catch
             {
-                using (var db = new LocalGourmetDBEntities())
-                {
-                    r.Name = name; 
-                    await db.SaveChangesAsync();
-                }
+                throw;
+            }
+            using (var db = new LocalGourmetDBEntities())
+            {
+                r.Name = name; 
+                await db.SaveChangesAsync();
             }
         }
 
