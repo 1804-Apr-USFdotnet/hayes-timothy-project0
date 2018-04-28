@@ -18,26 +18,26 @@ namespace LocalGourmet.PL
                 names.Add(r.ReadLine());
             }
 
-            Review r1 = new Review("", "I'm never coming here again!", 0, 0, 0, 0);
-            Review r2 = new Review("", "I'd rather eat bread and water.", 1, 0, 1, 0);
-            Review r3 = new Review("", "Bleh!", 1, 1, 1, 1);
-            Review r4 = new Review("", "I hope no one saw me eat here.", 1, 2, 1, 2);
-            Review r5 = new Review("", "Better than starving...", 2, 2, 2, 2);
-            Review r6 = new Review("", "At least it was cheap.", 2, 2, 3, 3);
+            //Review r1 = new Review("", "I'm never coming here again!", 0, 0, 0, 0);
+            //Review r2 = new Review("", "I'd rather eat bread and water.", 1, 0, 1, 0);
+            //Review r3 = new Review("", "Bleh!", 1, 1, 1, 1);
+            //Review r4 = new Review("", "I hope no one saw me eat here.", 1, 2, 1, 2);
+            //Review r5 = new Review("", "Better than starving...", 2, 2, 2, 2);
+            //Review r6 = new Review("", "At least it was cheap.", 2, 2, 3, 3);
             Review r7 = new Review("", "I'd come here again.", 3, 3, 3, 4);
-            Review r8= new Review("", "I had great expectations...", 2, 3, 4, 4);
+            //Review r8= new Review("", "I had great expectations...", 2, 3, 4, 4);
             Review r9 = new Review("", "Wow!", 4, 4, 4, 4);
             Review r10 = new Review("", "Best restaurant ever!", 5, 5, 4, 4);
 
             List<Review> revs = new List<Review>();
-            revs.Add(r1);
-            revs.Add(r2);
-            revs.Add(r3);
-            revs.Add(r4);
-            revs.Add(r5);
-            revs.Add(r6);
+            //revs.Add(r1);
+            //revs.Add(r2);
+            //revs.Add(r3);
+            //revs.Add(r4);
+            //revs.Add(r5);
+            //revs.Add(r6);
             revs.Add(r7);
-            revs.Add(r8);
+            //revs.Add(r8);
             revs.Add(r9);
             revs.Add(r10);
 
@@ -47,7 +47,7 @@ namespace LocalGourmet.PL
             List<Review> customReviews = new List<Review>();
             for(int i = 0; i < 1000; i++)
             {
-                revIndex = rnd.Next(10);
+                revIndex = rnd.Next(3);
                 Review customRev = new Review();
                 Review q = revs[revIndex];
                 customRev.Comment = q.Comment;
@@ -97,10 +97,11 @@ namespace LocalGourmet.PL
             Console.WriteLine("-----------------");
 
             string input = "";
-            List<Restaurant> restaurants = null;
             string howMuchInfo = "";
             string ordering = "";
 
+            List<Restaurant> restaurants = Restaurant.GetRestaurants();
+            List<Restaurant> restaurantsTemp = null;
             // Choose initial restaurant list
             while(input != "quit")
             {
@@ -123,17 +124,17 @@ namespace LocalGourmet.PL
                 switch(input)
                 {
                     case "all":
-                        restaurants = Restaurant.GetRestaurants();
+                        restaurantsTemp = restaurants;
                         break;
                     case "top3":
-                        restaurants = Restaurant.GetTop3(Restaurant.GetRestaurants());
+                        restaurantsTemp = Restaurant.GetTop3(restaurants);
                         break;
                     case "search":
-                        restaurants = Restaurant.SearchByName(Restaurant.GetRestaurants());
+                        restaurantsTemp = Restaurant.SearchByName(restaurants);
                         Console.WriteLine("------------------------------");
-                        Console.WriteLine(restaurants.Count + " matches:");
+                        Console.WriteLine(restaurantsTemp.Count + " matches:");
                         Console.WriteLine("------------------------------");
-                        foreach (Restaurant r in restaurants)
+                        foreach (Restaurant r in restaurantsTemp)
                         {
                             Console.WriteLine(r.Name);
                         }
@@ -143,7 +144,7 @@ namespace LocalGourmet.PL
                 }
                 if(input=="quit") { break; }
 
-                if(restaurants is null || restaurants.Count == 0)
+                if(restaurantsTemp is null || restaurantsTemp.Count == 0)
                 {
                     Console.WriteLine("No restaurants found.");
                     input = "";
@@ -228,13 +229,13 @@ namespace LocalGourmet.PL
                         switch(ordering)
                         {
                             case "name":
-                                DisplayWithAllInfo(Restaurant.SortByNameAsc(restaurants));
+                                DisplayWithAllInfo(Restaurant.SortByNameAsc(restaurantsTemp));
                                 break;
                             case "cuisine":
-                                DisplayWithAllInfo(Restaurant.SortByCuisineAsc(restaurants));
+                                DisplayWithAllInfo(Restaurant.SortByCuisineAsc(restaurantsTemp));
                                 break;
                             case "rating":
-                                DisplayWithAllInfo(Restaurant.SortByAvgRatingDesc(restaurants));
+                                DisplayWithAllInfo(Restaurant.SortByAvgRatingDesc(restaurantsTemp));
                                 break;
                         }
                         break;
@@ -242,13 +243,13 @@ namespace LocalGourmet.PL
                         switch(ordering)
                         {
                             case "name":
-                                DisplayAllInfoWithReviews(Restaurant.SortByNameAsc(restaurants));
+                                DisplayAllInfoWithReviews(Restaurant.SortByNameAsc(restaurantsTemp));
                                 break;
                             case "cuisine":
-                                DisplayAllInfoWithReviews(Restaurant.SortByCuisineAsc(restaurants));
+                                DisplayAllInfoWithReviews(Restaurant.SortByCuisineAsc(restaurantsTemp));
                                 break;
                             case "rating":
-                                DisplayAllInfoWithReviews(Restaurant.SortByAvgRatingDesc(restaurants));
+                                DisplayAllInfoWithReviews(Restaurant.SortByAvgRatingDesc(restaurantsTemp));
                                 break;
                         }
                         break;
@@ -256,13 +257,13 @@ namespace LocalGourmet.PL
                         switch(ordering)
                         {
                             case "name":
-                                DisplaySummarized(Restaurant.SortByNameAsc(restaurants));
+                                DisplaySummarized(Restaurant.SortByNameAsc(restaurantsTemp));
                                 break;
                             case "cuisine":
-                                DisplaySummarized(Restaurant.SortByCuisineAsc(restaurants));
+                                DisplaySummarized(Restaurant.SortByCuisineAsc(restaurantsTemp));
                                 break;
                             case "rating":
-                                DisplaySummarized(Restaurant.SortByAvgRatingDesc(restaurants));
+                                DisplaySummarized(Restaurant.SortByAvgRatingDesc(restaurantsTemp));
                                 break;
                         }
                         break;
@@ -270,13 +271,13 @@ namespace LocalGourmet.PL
                         switch(ordering)
                         {
                             case "name":
-                                DisplaySummarizedWithReviews(Restaurant.SortByNameAsc(restaurants));
+                                DisplaySummarizedWithReviews(Restaurant.SortByNameAsc(restaurantsTemp));
                                 break;
                             case "cuisine":
-                                DisplaySummarizedWithReviews(Restaurant.SortByCuisineAsc(restaurants));
+                                DisplaySummarizedWithReviews(Restaurant.SortByCuisineAsc(restaurantsTemp));
                                 break;
                             case "rating":
-                                DisplaySummarizedWithReviews(Restaurant.SortByAvgRatingDesc(restaurants));
+                                DisplaySummarizedWithReviews(Restaurant.SortByAvgRatingDesc(restaurantsTemp));
                                 break;
                         }
                         break;
@@ -312,11 +313,16 @@ namespace LocalGourmet.PL
             foreach (var restaurant in list)
             {
                 Console.WriteLine(restaurant.GetSummary());
+                Console.WriteLine();
                 List<Review> reviews = restaurant.Reviews;
                 foreach (var r in reviews)
                 {
                     Console.WriteLine(r);
                 }
+                Console.WriteLine();
+                Console.WriteLine("*********************************************");
+                Console.WriteLine("*********************************************");
+                Console.WriteLine();
                 Console.WriteLine();
             }
         }
@@ -326,11 +332,16 @@ namespace LocalGourmet.PL
             foreach (var restaurant in list)
             {
                 Console.WriteLine(restaurant);
+                Console.WriteLine();
                 List<Review> reviews = restaurant.Reviews;
                 foreach (var r in reviews)
                 {
                     Console.WriteLine(r);
                 }
+                Console.WriteLine();
+                Console.WriteLine("*********************************************");
+                Console.WriteLine("*********************************************");
+                Console.WriteLine();
                 Console.WriteLine();
             }
         }

@@ -178,12 +178,9 @@ namespace LocalGourmet.BLL.Models
         public static List<Review> GetReviewsByRestaurantID(int restID)
         {
             ReviewAccessor reviewCRUD = new ReviewAccessor();
-            List<Review> revs;
             try
             {
-                List<DL.Review> dataList = reviewCRUD.GetReviewsByRestaurantID(restID).ToList();
-                revs = dataList.Select(x => DataToLibrary(x)).ToList();
-                return revs;
+                return reviewCRUD.GetReviewsByRestaurantID(restID).Select(x => DataToLibrary(x)).ToList();
             }
             catch
             {
