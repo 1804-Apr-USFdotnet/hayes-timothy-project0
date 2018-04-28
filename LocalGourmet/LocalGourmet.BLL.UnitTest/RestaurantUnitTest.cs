@@ -79,5 +79,27 @@ namespace LocalGourmet.BLL.UnitTest
             Assert.AreEqual(3, a2.Count);
         }
 
+        [TestMethod]
+        public void TestSortByAvgRatingDesc()
+        {
+            // Arrange
+            List<Restaurant> restaurants = new List<Restaurant>();
+            string json = System.IO.File.ReadAllText(@"C:\revature\" + 
+                @"hayes-timothy-project0\LocalGourmet\LocalGourmet.BLL\" +
+                @"Configs\RestaurantsForUnitTest2.json");
+            restaurants = Serializer.Deserialize<List<Restaurant>>(json);
+
+            string e2 = "Columbia Restaurant"; // rating = 4.15
+            string e5 = "Tampa Bay Brewing Company"; // rating = 3.36
+            string e7 = "Stonewood Grill & Tavern"; // rating = 3.25
+
+            // Act
+            List<Restaurant> a = Restaurant.SortByAvgRatingDesc(Restaurant.GetAll());
+
+            // Assert
+            Assert.AreEqual(e2, a[2].Name);
+            Assert.AreEqual(e5, a[5].Name);
+            Assert.AreEqual(e7, a[7].Name);
+        }
     }
 }

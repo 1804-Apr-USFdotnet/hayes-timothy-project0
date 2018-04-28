@@ -18,26 +18,26 @@ namespace LocalGourmet.PL
                 names.Add(r.ReadLine());
             }
 
-            //Review r1 = new Review("", "I'm never coming here again!", 0, 0, 0, 0);
-            //Review r2 = new Review("", "I'd rather eat bread and water.", 1, 0, 1, 0);
-            //Review r3 = new Review("", "Bleh!", 1, 1, 1, 1);
-            //Review r4 = new Review("", "I hope no one saw me eat here.", 1, 2, 1, 2);
-            //Review r5 = new Review("", "Better than starving...", 2, 2, 2, 2);
-            //Review r6 = new Review("", "At least it was cheap.", 2, 2, 3, 3);
+            Review r1 = new Review("", "I'm never coming here again!", 0, 0, 0, 0);
+            Review r2 = new Review("", "I'd rather eat bread and water.", 1, 0, 1, 0);
+            Review r3 = new Review("", "Bleh!", 1, 1, 1, 1);
+            Review r4 = new Review("", "I hope no one saw me eat here.", 1, 2, 1, 2);
+            Review r5 = new Review("", "Better than starving...", 2, 2, 2, 2);
+            Review r6 = new Review("", "At least it was cheap.", 2, 2, 3, 3);
             Review r7 = new Review("", "I'd come here again.", 3, 3, 3, 4);
-            //Review r8= new Review("", "I had great expectations...", 2, 3, 4, 4);
+            Review r8 = new Review("", "I had great expectations...", 2, 3, 4, 4);
             Review r9 = new Review("", "Wow!", 4, 4, 4, 4);
             Review r10 = new Review("", "Best restaurant ever!", 5, 5, 4, 4);
 
             List<Review> revs = new List<Review>();
-            //revs.Add(r1);
-            //revs.Add(r2);
-            //revs.Add(r3);
-            //revs.Add(r4);
-            //revs.Add(r5);
-            //revs.Add(r6);
+            revs.Add(r1);
+            revs.Add(r2);
+            revs.Add(r3);
+            revs.Add(r4);
+            revs.Add(r5);
+            revs.Add(r6);
             revs.Add(r7);
-            //revs.Add(r8);
+            revs.Add(r8);
             revs.Add(r9);
             revs.Add(r10);
 
@@ -67,28 +67,6 @@ namespace LocalGourmet.PL
 
         public static void Main(string[] args)
         {
-            //List<Review> revs = Review.GetReviews();
-            //foreach (var item in revs)
-            //{
-            //    Console.WriteLine(item);
-            //}
-
-            //List<Review> customReviews = ReviewScript();
-            //foreach (var item in customReviews)
-            //{
-            //    item.AddReviewAsync();
-            //}
-
-            //Restaurant z = Restaurant.GetRestaurantByID(1);
-            //Console.WriteLine(z);
-            //z.UpdateRestaurantAsync(z.Name, z.Location, "American", 
-            //    z.Specialty, z.PhoneNumber, z.WebAddress, z.Type, z.Hours);
-            //z = Restaurant.GetRestaurantByID(1);
-            //Console.WriteLine(z);
-
-            //Review x = Review.GetReviewByID(1);
-            //x.DeleteReviewAsync();
-
             Logger log = LogManager.GetLogger("file");
             log.Info("Start session: " + System.DateTime.Now);
 
