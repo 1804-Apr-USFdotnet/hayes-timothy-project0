@@ -257,10 +257,7 @@ namespace LocalGourmet.BLL.Models
         public static BLL.Models.Restaurant DataToLibrary(DL.Restaurant dataModel)
         {
             int restID = dataModel.ID;
-            // Get a list of all reviews where RestaurantID == restID
-            // Call ReviewAccessor's DataToLibrary function on those reviews
-            // Put them all in a list
-            // assign that list to the new Rest. model's review list.
+            List<Review> revs = Review.GetReviewsByRestaurantID(restID);
 
             var libModel = new BLL.Models.Restaurant()
             {
@@ -273,7 +270,8 @@ namespace LocalGourmet.BLL.Models
                 WebAddress = dataModel.WebAddress,
                 Type = dataModel.Type,
                 Hours = dataModel.Hours,
-                Active = dataModel.Active
+                Active = dataModel.Active,
+                Reviews = revs
             };
             return libModel;
         }

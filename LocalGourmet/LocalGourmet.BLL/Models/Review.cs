@@ -175,6 +175,22 @@ namespace LocalGourmet.BLL.Models
             return r;
         }
 
+        public static List<Review> GetReviewsByRestaurantID(int restID)
+        {
+            ReviewAccessor reviewCRUD = new ReviewAccessor();
+            List<Review> revs;
+            try
+            {
+                List<DL.Review> dataList = reviewCRUD.GetReviewsByRestaurantID(restID).ToList();
+                revs = dataList.Select(x => DataToLibrary(x)).ToList();
+                return revs;
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
         // UPDATE
         public async Task UpdateReviewAsync(string reviewerName, 
             string comment, int foodRating, int serviceRating, int priceRating,

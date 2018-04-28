@@ -30,6 +30,16 @@ namespace LocalGourmet.DAL
             return dataList;
         }
 
+        public IEnumerable<DL.Review> GetReviewsByRestaurantID(int restID)
+        {
+            IEnumerable<DL.Review> dataList;
+            using (var db = new LocalGourmetDBEntities())
+            {
+                dataList = db.Reviews.Where(x => x.RestaurantID == restID).ToList();
+            }
+            return dataList;
+        }
+
         public DL.Review GetReviewByID(int id)
         {
             DL.Review r;

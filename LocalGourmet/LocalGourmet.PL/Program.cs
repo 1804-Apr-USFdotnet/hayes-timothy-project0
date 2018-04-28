@@ -86,8 +86,8 @@ namespace LocalGourmet.PL
             //z = Restaurant.GetRestaurantByID(1);
             //Console.WriteLine(z);
 
-            Review x = Review.GetReviewByID(1);
-            x.DeleteReviewAsync();
+            //Review x = Review.GetReviewByID(1);
+            //x.DeleteReviewAsync();
 
             Logger log = LogManager.GetLogger("file");
             log.Info("Start session: " + System.DateTime.Now);
