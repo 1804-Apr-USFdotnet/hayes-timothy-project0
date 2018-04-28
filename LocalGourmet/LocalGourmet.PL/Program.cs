@@ -9,10 +9,12 @@ namespace LocalGourmet.PL
     {
         public static void Main(string[] args)
         {
-            // Test Update -- working
-            Restaurant rest1 = Restaurant.GetRestaurantByID(1);
-            Console.WriteLine(rest1);
-            rest1.DeleteRestaurantAsync();
+            //Restaurant z = Restaurant.GetRestaurantByID(1);
+            //Console.WriteLine(z);
+            //z.UpdateRestaurantAsync(z.Name, z.Location, "American", 
+            //    z.Specialty, z.PhoneNumber, z.WebAddress, z.Type, z.Hours);
+            //z = Restaurant.GetRestaurantByID(1);
+            //Console.WriteLine(z);
 
             Logger log = LogManager.GetLogger("file");
             log.Info("Start session: " + System.DateTime.Now);

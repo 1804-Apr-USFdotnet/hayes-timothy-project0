@@ -52,7 +52,9 @@ namespace LocalGourmet.DAL
         }
         
         // UPDATE
-        public async Task UpdateRestaurantAsync(int id, string name)
+        public async Task UpdateRestaurantAsync(int id, string name, 
+            string location, string cuisine, string specialty, 
+            string phoneNumber, string webAddress, string type, string hours)
         {
             DL.Restaurant r;
             try
@@ -61,7 +63,14 @@ namespace LocalGourmet.DAL
                 {
                     r = db.Restaurants.Find(id);
                     if (r == null) { throw new ArgumentOutOfRangeException("id"); }
-                    r.Name = name; 
+                    r.Name = name;
+                    r.Location = location;
+                    r.Cuisine = cuisine;
+                    r.Specialty = specialty;
+                    r.PhoneNumber = phoneNumber;
+                    r.WebAddress = webAddress;
+                    r.Type = type;
+                    r.Hours = hours;
                     await db.SaveChangesAsync();
                 }
             }

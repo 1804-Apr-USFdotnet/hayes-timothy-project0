@@ -14,10 +14,16 @@ namespace LocalGourmet.BLL.Models
         public Restaurant()
         {
             Reviews = new List<Review>();
+            Active = true;
         }
 
         #region Properties
+        // ID indexing is handled by the data source.
+        // This ID Property is only for storing the ID when converting
+        // the object between layers. Do not set this when creating an
+        // object -- it will be ignored.
         public int ID { get; set; }
+        public bool Active { get; set; }
         [DataMember]
         public string Name { get; set; } 
         [DataMember]
@@ -113,6 +119,7 @@ namespace LocalGourmet.BLL.Models
         }
 
         // READ
+        // Does not return inactive ("deleted") restaurants
         public static List<Restaurant> GetRestaurants()
         {
             RestaurantAccessor restaurantCRUD = new RestaurantAccessor();
@@ -121,6 +128,7 @@ namespace LocalGourmet.BLL.Models
             return result;
         }
 
+        // Does return inactive ("deleted") restaurants
         public static Restaurant GetRestaurantByID(int id)
         {
             RestaurantAccessor restaurantCRUD = new RestaurantAccessor();
@@ -137,12 +145,16 @@ namespace LocalGourmet.BLL.Models
         }
         
         // UPDATE
-        public async Task UpdateRestaurantAsync(string name)
+        public async Task UpdateRestaurantAsync(string name, string location,
+            string cuisine, string specialty, string phoneNumber, 
+            string webAddress, string type, string hours)
         {
             RestaurantAccessor restaurantCRUD = new RestaurantAccessor();
             try
             {
-                await restaurantCRUD.UpdateRestaurantAsync(this.ID, name);
+                await restaurantCRUD.UpdateRestaurantAsync(this.ID, name,
+                    location, cuisine, specialty, phoneNumber, webAddress,
+                    type, hours);
             }
             catch
             {
@@ -259,7 +271,8 @@ namespace LocalGourmet.BLL.Models
                 PhoneNumber = dataModel.PhoneNumber,
                 WebAddress = dataModel.WebAddress,
                 Type = dataModel.Type,
-                Hours = dataModel.Hours
+                Hours = dataModel.Hours,
+                Active = dataModel.Active
             };
             return libModel;
         }
@@ -277,6 +290,7 @@ namespace LocalGourmet.BLL.Models
                 dataModel.WebAddress = libModel.WebAddress;
                 dataModel.Type = libModel.Type;
                 dataModel.Hours = libModel.Hours;
+                dataModel.Active = libModel.Active;
             };
             return dataModel;
         }
