@@ -1,11 +1,8 @@
-﻿using LocalGourmet.BLL.Interfaces;
+﻿using LocalGourmet.DAL;
+using LocalGourmet.BLL.Interfaces;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.Serialization;
-using System.Runtime.Serialization.Json;
 
 namespace LocalGourmet.BLL.Models
 {
@@ -144,6 +141,15 @@ namespace LocalGourmet.BLL.Models
         }
 
         #region CRUD
+        // CREATE
+        public async Task AddReviewAsync()
+        {
+            DL.Review review = LibraryToData(this);
+            ReviewAccessor ra = new ReviewAccessor();
+            await ra.AddReviewAsync(review);
+        }
+
+
         #endregion
 
         #region BLL-DL Mappers

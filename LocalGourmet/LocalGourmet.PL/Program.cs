@@ -7,7 +7,7 @@ namespace LocalGourmet.PL
 {
     class Program
     {
-        // Returns a custom list of 1000 reviews, with Rest.ID's 1-10
+        // Returns a custom list of 1000 reviews, with RestaurantIDs from 1-10
         public static List<Review> ReviewScript()
         {
             List<string> names = new List<string>();
@@ -60,13 +60,18 @@ namespace LocalGourmet.PL
                 customRev.ReviewerName = $"{firstName} {lastName}";
                 customRev.RestaurantID = rnd.Next(1, 11);
                 customReviews.Add(customRev);
+                Console.WriteLine($"Added review {i + 1} out of 1000");
             }
             return customReviews;
         }
 
         public static void Main(string[] args)
         {
-            //List<Review> customReviews = ReviewScript();
+            List<Review> customReviews = ReviewScript();
+            foreach (var item in customReviews)
+            {
+                item.AddReviewAsync();
+            }
 
             //Restaurant z = Restaurant.GetRestaurantByID(1);
             //Console.WriteLine(z);
