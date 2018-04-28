@@ -3,6 +3,8 @@ using LocalGourmet.BLL.Interfaces;
 using System;
 using System.Threading.Tasks;
 using System.Runtime.Serialization;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace LocalGourmet.BLL.Models
 {
@@ -147,6 +149,75 @@ namespace LocalGourmet.BLL.Models
             DL.Review review = LibraryToData(this);
             ReviewAccessor ra = new ReviewAccessor();
             await ra.AddReviewAsync(review);
+        }
+
+        // READ
+        public static List<Review> GetReviews()
+        {
+            ReviewAccessor reviewCRUD = new ReviewAccessor();
+            List<DL.Review> dataList = reviewCRUD.GetReviews().ToList();
+            List<Review> result = dataList.Select(x => DataToLibrary(x)).ToList();
+            return result;
+        }
+
+        public static Review GetReviewByID(int id)
+        {
+            ReviewAccessor reviewCRUD = new ReviewAccessor();
+            Review r;
+            try
+            {
+                r = DataToLibrary(reviewCRUD.GetReviewByID(id));
+            }
+            catch
+            {
+                throw;
+            }
+            return r;
+        }
+
+        // UPDATE
+        public async Task UpdateReviewAsync(string reviewerName, 
+            string comment, int foodRating, int serviceRating, int priceRating,
+            int atmosphereRating, int restaurantID)
+        {
+            ReviewAccessor reviewCRUD = new ReviewAccessor();
+            try
+            {
+                // Check restaurantID -- Will throw exception if invalid
+                Restaurant rest = Restaurant.GetRestaurantByID(restaurantID);
+
+                // Conform rating input to rating bounds
+                foodRating = foodRating < 0 ? 0 : 
+                    (foodRating > 5 ? 5 : foodRating);
+                serviceRating = serviceRating < 0 ? 0 : 
+                    (serviceRating > 5 ? 5 : serviceRating);
+                priceRating = priceRating < 0 ? 0 : 
+                    (priceRating > 5 ? 5 : priceRating);
+                atmosphereRating = atmosphereRating < 0 ? 0 : 
+                    (atmosphereRating > 5 ? 5 : atmosphereRating);
+
+                await reviewCRUD.UpdateReviewAsync(this.ID, reviewerName,
+                    comment, foodRating, serviceRating, priceRating, 
+                    atmosphereRating, restaurantID);
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+        // DELETE
+        public async Task DeleteReviewAsync()
+        {
+            ReviewAccessor reviewCRUD = new ReviewAccessor();
+            try
+            {
+                await reviewCRUD.DeleteReviewAsync(this.ID);
+            }
+            catch
+            {
+                throw;
+            }
         }
 
 

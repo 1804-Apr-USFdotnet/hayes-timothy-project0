@@ -67,11 +67,17 @@ namespace LocalGourmet.PL
 
         public static void Main(string[] args)
         {
-            List<Review> customReviews = ReviewScript();
-            foreach (var item in customReviews)
-            {
-                item.AddReviewAsync();
-            }
+            //List<Review> revs = Review.GetReviews();
+            //foreach (var item in revs)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+            //List<Review> customReviews = ReviewScript();
+            //foreach (var item in customReviews)
+            //{
+            //    item.AddReviewAsync();
+            //}
 
             //Restaurant z = Restaurant.GetRestaurantByID(1);
             //Console.WriteLine(z);
@@ -79,6 +85,9 @@ namespace LocalGourmet.PL
             //    z.Specialty, z.PhoneNumber, z.WebAddress, z.Type, z.Hours);
             //z = Restaurant.GetRestaurantByID(1);
             //Console.WriteLine(z);
+
+            Review x = Review.GetReviewByID(1);
+            x.DeleteReviewAsync();
 
             Logger log = LogManager.GetLogger("file");
             log.Info("Start session: " + System.DateTime.Now);
