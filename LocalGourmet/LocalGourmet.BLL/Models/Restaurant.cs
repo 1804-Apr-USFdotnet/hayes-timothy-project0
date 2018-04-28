@@ -17,6 +17,7 @@ namespace LocalGourmet.BLL.Models
         }
 
         #region Properties
+        public int ID { get; set; }
         [DataMember]
         public string Name { get; set; } 
         [DataMember]
@@ -120,7 +121,7 @@ namespace LocalGourmet.BLL.Models
             return result;
         }
 
-        public Restaurant GetRestaurantByID(int id)
+        public static Restaurant GetRestaurantByID(int id)
         {
             RestaurantAccessor restaurantCRUD = new RestaurantAccessor();
             Restaurant r;
@@ -136,12 +137,12 @@ namespace LocalGourmet.BLL.Models
         }
         
         // UPDATE
-        public async Task UpdateRestaurantAsync(int id, string name)
+        public async Task UpdateRestaurantAsync(string name)
         {
             RestaurantAccessor restaurantCRUD = new RestaurantAccessor();
             try
             {
-                await restaurantCRUD.UpdateRestaurantAsync(id, name);
+                await restaurantCRUD.UpdateRestaurantAsync(this.ID, name);
             }
             catch
             {
@@ -245,6 +246,7 @@ namespace LocalGourmet.BLL.Models
 
             var libModel = new BLL.Models.Restaurant()
             {
+                ID = dataModel.ID,
                 Name = dataModel.Name,
                 Location = dataModel.Location,
                 Cuisine = dataModel.Cuisine,
@@ -261,6 +263,7 @@ namespace LocalGourmet.BLL.Models
         {
             var dataModel = new DL.Restaurant();
             {
+                dataModel.ID = libModel.ID;
                 dataModel.Name = libModel.Name;
                 dataModel.Location = libModel.Location;
                 dataModel.Cuisine = libModel.Cuisine;
