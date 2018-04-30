@@ -101,5 +101,47 @@ namespace LocalGourmet.BLL.UnitTest
             Assert.AreEqual(e5, a[5].Name);
             Assert.AreEqual(e7, a[7].Name);
         }
+
+        [TestMethod]
+        public void TestSortByNameAsc()
+        {
+            // Arrange
+            List<Restaurant> restaurants = new List<Restaurant>();
+            string json = System.IO.File.ReadAllText(@"C:\revature\" + 
+                @"hayes-timothy-project0\LocalGourmet\LocalGourmet.BLL\" +
+                @"Configs\RestaurantsForUnitTest2.json");
+            restaurants = Serializer.Deserialize<List<Restaurant>>(json);
+
+            string e1 = "Columbia Restaurant";
+            string e2 = "Yummy House China Bistro";
+
+            // Act
+            List<Restaurant> a = Restaurant.SortByNameAsc(Restaurant.GetAll());
+
+            // Assert
+            Assert.AreEqual(e1, a[0].Name);
+            Assert.AreEqual(e2, a[9].Name);
+        }
+
+        [TestMethod]
+        public void TestSortByCuisineAsc()
+        {
+            // Arrange
+            List<Restaurant> restaurants = new List<Restaurant>();
+            string json = System.IO.File.ReadAllText(@"C:\revature\" + 
+                @"hayes-timothy-project0\LocalGourmet\LocalGourmet.BLL\" +
+                @"Configs\RestaurantsForUnitTest2.json");
+            restaurants = Serializer.Deserialize<List<Restaurant>>(json);
+
+            string e1 = "Happy Fish";
+            string e2 = "Columbia Restaurant";
+
+            // Act
+            List<Restaurant> a = Restaurant.SortByCuisineAsc(Restaurant.GetAll());
+
+            // Assert
+            Assert.AreEqual(e1, a[8].Name);
+            Assert.AreEqual(e2, a[9].Name);
+        }
     }
 }

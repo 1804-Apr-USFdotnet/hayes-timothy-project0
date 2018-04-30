@@ -11,7 +11,7 @@ namespace LocalGourmet.PL
         public static Review[] GenerateReviews(int howMany)
         {
             string[] names = new string[4945];
-            string nameString = System.IO.File.ReadAllText(@"C:\Users\tjhay\Downloads\Names.txt");
+            string nameString = System.IO.File.ReadAllText(@"C:\revature\hayes-timothy-project0\LocalGourmet\LocalGourmet.BLL\Configs\Names.txt");
             System.IO.StringReader r = new System.IO.StringReader(nameString);
             for(int i = 0; i < 4945; i++)
             {
