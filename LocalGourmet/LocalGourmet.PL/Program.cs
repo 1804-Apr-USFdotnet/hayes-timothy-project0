@@ -7,47 +7,47 @@ namespace LocalGourmet.PL
 {
     class Program
     {
-        // Returns a custom list of 1000 reviews, with RestaurantIDs from 1-10
-        public static List<Review> ReviewScript()
+        // Returns a custom list of reviews, with RestaurantIDs from 1-10
+        public static Review[] GenerateReviews(int howMany)
         {
-            List<string> names = new List<string>();
+            string[] names = new string[4945];
             string nameString = System.IO.File.ReadAllText(@"C:\Users\tjhay\Downloads\Names.txt");
             System.IO.StringReader r = new System.IO.StringReader(nameString);
-            for(int i = 1; i <= 4945; i++)
+            for(int i = 0; i < 4945; i++)
             {
-                names.Add(r.ReadLine());
+                names[i] = r.ReadLine();
             }
 
-            Review r1 = new Review("", "I'm never coming here again!", 0, 0, 0, 0);
-            Review r2 = new Review("", "I'd rather eat bread and water.", 1, 0, 1, 0);
-            Review r3 = new Review("", "Bleh!", 1, 1, 1, 1);
-            Review r4 = new Review("", "I hope no one saw me eat here.", 1, 2, 1, 2);
-            Review r5 = new Review("", "Better than starving...", 2, 2, 2, 2);
-            Review r6 = new Review("", "At least it was cheap.", 2, 2, 3, 3);
-            Review r7 = new Review("", "I'd come here again.", 3, 3, 3, 4);
+            Review r1 = new Review("", "I'm never coming here again!", 0, 1, 1, 1);
+            Review r2 = new Review("", "I'd rather eat bread and water.", 1, 2, 1, 0);
+            Review r3 = new Review("", "Bleh!", 1, 2, 1, 2);
+            Review r4 = new Review("", "I hope no one saw me eat here.", 2, 3, 1, 2);
+            Review r5 = new Review("", "Better than starving...", 2, 3, 2, 3);
+            Review r6 = new Review("", "At least it was cheap.", 3, 2, 4, 3);
+            Review r7 = new Review("", "I'd come here again.", 3, 4, 3, 4);
             Review r8 = new Review("", "I had great expectations...", 2, 3, 4, 4);
-            Review r9 = new Review("", "Wow!", 4, 4, 4, 4);
-            Review r10 = new Review("", "Best restaurant ever!", 5, 5, 4, 4);
+            Review r9 = new Review("", "Wow!", 4, 4, 5, 4);
+            Review r10 = new Review("", "Best restaurant ever!", 5, 5, 5, 5);
 
-            List<Review> revs = new List<Review>();
-            revs.Add(r1);
-            revs.Add(r2);
-            revs.Add(r3);
-            revs.Add(r4);
-            revs.Add(r5);
-            revs.Add(r6);
-            revs.Add(r7);
-            revs.Add(r8);
-            revs.Add(r9);
-            revs.Add(r10);
+            Review[] revs = new Review[10];
+            revs[0] = r1;
+            revs[1] = r2;
+            revs[2] = r3;
+            revs[3] = r4;
+            revs[4] = r5;
+            revs[5] = r6;
+            revs[6] = r7;
+            revs[7] = r8;
+            revs[8] = r9;
+            revs[9] = r10;
 
             int revIndex;
             string firstName, lastName;
             Random rnd = new Random();
-            List<Review> customReviews = new List<Review>();
-            for(int i = 0; i < 1000; i++)
+            Review[] customReviews = new Review[howMany];
+            for(int i = 0; i < howMany; i++)
             {
-                revIndex = rnd.Next(3);
+                revIndex = rnd.Next(10);
                 Review customRev = new Review();
                 Review q = revs[revIndex];
                 customRev.Comment = q.Comment;
@@ -59,8 +59,8 @@ namespace LocalGourmet.PL
                 lastName = names[rnd.Next(4945)];
                 customRev.ReviewerName = $"{firstName} {lastName}";
                 customRev.RestaurantID = rnd.Next(1, 11);
-                customReviews.Add(customRev);
-                Console.WriteLine($"Added review {i + 1} out of 1000");
+                customReviews[i] = customRev;
+                Console.WriteLine($"Added review {i + 1} out of {howMany}");
             }
             return customReviews;
         }
