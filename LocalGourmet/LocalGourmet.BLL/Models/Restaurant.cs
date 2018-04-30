@@ -46,7 +46,7 @@ namespace LocalGourmet.BLL.Models
 
         public float GetAvgRating()
         {
-            if(Reviews.Count == 0) { return 0.0f; }
+            if (Reviews == null || Reviews.Count == 0) { return 0.0f; }
             float rating = 0.0f;
             foreach (var review in Reviews)
             {
@@ -123,9 +123,7 @@ namespace LocalGourmet.BLL.Models
         public static List<Restaurant> GetRestaurants()
         {
             RestaurantAccessor restaurantCRUD = new RestaurantAccessor();
-            List<DL.Restaurant> dataList = restaurantCRUD.GetRestaurants().ToList();
-            List<Restaurant> result = dataList.Select(x => DataToLibrary(x)).ToList();
-            return result;
+            return restaurantCRUD.GetRestaurants().Select(x => DataToLibrary(x)).ToList();
         }
 
         // Does return inactive ("deleted") restaurants
@@ -271,7 +269,8 @@ namespace LocalGourmet.BLL.Models
                 Type = dataModel.Type,
                 Hours = dataModel.Hours,
                 Active = dataModel.Active,
-                Reviews = revs
+                //Reviews = revs // Eager loading
+                Reviews = null // Lazy loading
             };
             return libModel;
         }
