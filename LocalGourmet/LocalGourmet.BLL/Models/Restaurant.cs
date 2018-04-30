@@ -269,8 +269,7 @@ namespace LocalGourmet.BLL.Models
                 Type = dataModel.Type,
                 Hours = dataModel.Hours,
                 Active = dataModel.Active,
-                //Reviews = revs // Eager loading
-                Reviews = null // Lazy loading
+                Reviews = revs // Eager loading
             };
             return libModel;
         }

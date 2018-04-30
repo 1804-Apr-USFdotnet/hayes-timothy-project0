@@ -219,26 +219,6 @@ namespace LocalGourmet.PL
                         }
                         break;
                     case "rev":
-                        // Lazy load the reviews for each restaurant
-                        foreach (var rest in restaurantsTemp)
-                        {
-                            bool revsAlreadyLoaded =
-                                restaurants.Single(x => x.ID == rest.ID).Reviews != null;
-
-                            if (!revsAlreadyLoaded)
-                            {
-                                rest.Reviews = Review.GetReviewsByRestaurantID(rest.ID);
-
-                                // Persist loaded reviews to permanent restaurant list
-                                restaurants.Single(x => x.ID == rest.ID).Reviews = rest.Reviews;
-                            }
-                            else
-                            {
-                                // Already loaded -- copy revs from perm to temp
-                                rest.Reviews = 
-                                    restaurants.Single(x => x.ID == rest.ID).Reviews;
-                            }
-                        }
                         switch(ordering)
                         {
                             case "name":
@@ -267,26 +247,6 @@ namespace LocalGourmet.PL
                         }
                         break;
                     case "summ rev":
-                        // Lazy load the reviews for each restaurant
-                        foreach (var rest in restaurantsTemp)
-                        {
-                            bool revsAlreadyLoaded =
-                                restaurants.Single(x => x.ID == rest.ID).Reviews != null;
-
-                            if (!revsAlreadyLoaded)
-                            {
-                                rest.Reviews = Review.GetReviewsByRestaurantID(rest.ID);
-
-                                // Persist loaded reviews to permanent restaurant list
-                                restaurants.Single(x => x.ID == rest.ID).Reviews = rest.Reviews;
-                            }
-                            else
-                            {
-                                // Already loaded -- copy revs from perm to temp
-                                rest.Reviews = 
-                                    restaurants.Single(x => x.ID == rest.ID).Reviews;
-                            }
-                        }
                         switch(ordering)
                         {
                             case "name":
