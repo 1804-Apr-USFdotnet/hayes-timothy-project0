@@ -40,6 +40,10 @@ values ('Tina', 'Smith', '1234567890123456'), ('Tina', 'Johnson', '1111111111111
 insert into Products.Orders ([ProductID], [CustomerID])
 values (4,1), (3,1), (1,1), (2,1), (1,2), (5,3), (5,1), (4,4), (3,4), (5,4), (2,4);
 
+select * from Products.Customers;
+select * from Products.Orders;
+select * from Products.Products;
+
 select Orders.[ID], Products.[Name], 
        Customers.[Firstname], Customers.[Lastname]
 from (Products.Orders
@@ -62,4 +66,6 @@ update Products.Products
 set [Price] = $250.00
 where [Name] = 'iPhone';
 
+select * from Products.Customers;
+select * from Products.Orders;
 select * from Products.Products;
