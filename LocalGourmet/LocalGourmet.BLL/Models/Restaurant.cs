@@ -44,69 +44,15 @@ namespace LocalGourmet.BLL.Models
         public string Hours { get; set; }
         #endregion
 
-        public float GetAvgRating()
+        public double GetAvgRating()
         {
             if (Reviews == null || Reviews.Count == 0) { return 0.0f; }
-            float rating = 0.0f;
-            foreach (var review in Reviews)
-            {
-                rating += review.GetRating();
-            }
-            rating /= Reviews.Count;
-            return (float) Math.Round(rating, 2);
+            return Math.Round(Reviews.Average(x => x.GetRating()), 2);
         }
 
         public static List<Restaurant> GetTop3(List<Restaurant> restaurants)
         {
-            if(restaurants == null || restaurants.Count < 3) { return restaurants; }
-            List<Restaurant> top3 = new List<Restaurant>();
-
-            float bestRating = 0.0f;
-            float secondBestRating = 0.0f;
-            float thirdBestRating = 0.0f;
-
-            int bestIndex = 0;
-            int secondBestIndex = 1;
-            int thirdBestIndex = 2;
-
-            int index = 0;
-
-            // Find top 3
-            foreach (Restaurant r in restaurants)
-            {
-                float rating = r.GetAvgRating();
-                // New Best
-                if(rating > bestRating)
-                {
-                    thirdBestRating = secondBestRating;
-                    secondBestRating = bestRating;
-                    bestRating = rating;
-
-                    thirdBestIndex = secondBestIndex;
-                    secondBestIndex = bestIndex;
-                    bestIndex = index;
-                // New Second Best
-                } else if (rating <= bestRating && rating > secondBestRating)
-                {
-                    thirdBestRating = secondBestRating;
-                    secondBestRating = rating;
-
-                    thirdBestIndex = secondBestIndex;
-                    secondBestIndex = index;
-                // New Third Best
-                } else if (rating <= secondBestRating && rating > thirdBestRating)
-                {
-                    thirdBestRating = rating;
-                    thirdBestIndex = index;
-                }
-                index++;
-            }
-
-            top3.Add(restaurants.ElementAt(bestIndex));
-            top3.Add(restaurants.ElementAt(secondBestIndex));
-            top3.Add(restaurants.ElementAt(thirdBestIndex));
-
-            return top3;
+            return restaurants.OrderByDescending(x => x.GetAvgRating()).Take(3).ToList();
         }
 
         #region CRUD

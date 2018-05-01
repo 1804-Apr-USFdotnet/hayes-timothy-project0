@@ -18,6 +18,6 @@ namespace LocalGourmet.BLL.Interfaces
         string WebAddress { get; set; }
         List<Review> Reviews { get; set; }
 
-        float GetAvgRating();
+        double GetAvgRating();
     }
 }

@@ -19,10 +19,10 @@ namespace LocalGourmet.BLL.UnitTest
                 @"Configs\RestaurantsForUnitTest.json");
             restaurants = Serializer.Deserialize<List<Restaurant>>(json);
             Restaurant subway = restaurants[0];
-            float expectedRating = 3.0f;
+            double expectedRating = 3.0;
 
             // Act
-            float actualRating = subway.GetAvgRating();
+            double actualRating = subway.GetAvgRating();
 
             // Assert
             Assert.AreEqual(expectedRating, actualRating);
