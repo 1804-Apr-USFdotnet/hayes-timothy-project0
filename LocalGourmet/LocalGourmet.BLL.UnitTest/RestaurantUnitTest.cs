@@ -10,6 +10,20 @@ namespace LocalGourmet.BLL.UnitTest
     public class RestaurantUnitTest
     {
         [TestMethod]
+        public void TestRestaurantDefaultConstructor()
+        {
+            // Arrange
+            Restaurant r = new Restaurant();
+
+            // Act
+
+            // Assert
+            Assert.AreNotEqual(r, null);
+            Assert.AreNotEqual(r.Reviews, null);
+            Assert.AreEqual(r.Active, true);
+        }
+
+        [TestMethod]
         public void TestRestaurantGetAvgRating()
         {
             // Arrange

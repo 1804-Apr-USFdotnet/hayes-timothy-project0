@@ -10,6 +10,66 @@ namespace LocalGourmet.BLL.UnitTest
     public class ReviewUnitTest
     {
         [TestMethod]
+        public void TestReviewDefaultConstructor()
+        {
+            Review r = new Review();
+            Assert.AreNotEqual(r, null);
+        }
+
+        [TestMethod]
+        public void TestReviewNameCommentConstructor()
+        {
+            Review r = new Review("James Alexander", "Great!");
+            Assert.AreNotEqual(r, null);
+            Assert.AreEqual("James Alexander", r.ReviewerName);
+            Assert.AreEqual("Great!", r.Comment);
+        }
+
+        [TestMethod]
+        public void TestReviewNameCommentRatingConstructor()
+        {
+            Review r = new Review("James Alexander", "Great!", 4);
+            Assert.AreNotEqual(r, null);
+            Assert.AreEqual("James Alexander", r.ReviewerName);
+            Assert.AreEqual("Great!", r.Comment);
+            Assert.AreEqual(4, r.FoodRating);
+            Assert.AreEqual(4, r.ServiceRating);
+            Assert.AreEqual(4, r.AtmosphereRating);
+            Assert.AreEqual(4, r.PriceRating);
+
+            r = new Review("James Alexander", "Great!", -10);
+            Assert.AreNotEqual(r, null);
+            Assert.AreEqual("James Alexander", r.ReviewerName);
+            Assert.AreEqual("Great!", r.Comment);
+            Assert.AreEqual(0, r.FoodRating);
+            Assert.AreEqual(0, r.ServiceRating);
+            Assert.AreEqual(0, r.AtmosphereRating);
+            Assert.AreEqual(0, r.PriceRating);
+
+            r = new Review("James Alexander", "Great!", 100);
+            Assert.AreNotEqual(r, null);
+            Assert.AreEqual("James Alexander", r.ReviewerName);
+            Assert.AreEqual("Great!", r.Comment);
+            Assert.AreEqual(5, r.FoodRating);
+            Assert.AreEqual(5, r.ServiceRating);
+            Assert.AreEqual(5, r.AtmosphereRating);
+            Assert.AreEqual(5, r.PriceRating);
+        }
+
+        [TestMethod]
+        public void TestReviewFullConstructor()
+        {
+            Review r = new Review("James Alexander", "Great!", 4, -5, 2, 10);
+            Assert.AreNotEqual(r, null);
+            Assert.AreEqual("James Alexander", r.ReviewerName);
+            Assert.AreEqual("Great!", r.Comment);
+            Assert.AreEqual(4, r.FoodRating);
+            Assert.AreEqual(0, r.ServiceRating);
+            Assert.AreEqual(2, r.AtmosphereRating);
+            Assert.AreEqual(5, r.PriceRating);
+        }
+
+        [TestMethod]
         public void TestGetRating()
         {
             // Arrange

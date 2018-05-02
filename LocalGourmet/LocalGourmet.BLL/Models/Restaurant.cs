@@ -11,11 +11,12 @@ namespace LocalGourmet.BLL.Models
     [DataContract]
     public class Restaurant : IRestaurant
     {
-        public Restaurant()
-        {
+        #region Constructors
+        public Restaurant() {
             Reviews = new List<Review>();
             Active = true;
         }
+        #endregion
 
         #region Properties
         // ID indexing is handled by the data source.
@@ -44,6 +45,18 @@ namespace LocalGourmet.BLL.Models
         public string Hours { get; set; }
         #endregion
 
+        #region Getters
+        // Deprecated -- only use for serialization testing
+        public static List<Restaurant> GetAll()
+        {
+            List<Restaurant> restaurants = new List<Restaurant>();
+            string json = System.IO.File.ReadAllText(@"C:\revature\" +
+                @"hayes-timothy-project0\LocalGourmet\LocalGourmet.BLL\" +
+                @"Configs\RestaurantsForUnitTest2.json");
+            restaurants = Serializer.Deserialize<List<Restaurant>>(json);
+            return restaurants;
+        }
+
         public double GetAvgRating()
         {
             if (Reviews == null || Reviews.Count == 0) { return 0.0f; }
@@ -54,6 +67,7 @@ namespace LocalGourmet.BLL.Models
         {
             return restaurants.OrderByDescending(x => x.GetAvgRating()).Take(3).ToList();
         }
+        #endregion
 
         #region CRUD
         // CREATE
@@ -121,17 +135,6 @@ namespace LocalGourmet.BLL.Models
         }
         #endregion
 
-        // Deprecated -- only use for serialization testing
-        public static List<Restaurant> GetAll()
-        {
-            List<Restaurant> restaurants = new List<Restaurant>();
-            string json = System.IO.File.ReadAllText(@"C:\revature\" +
-                @"hayes-timothy-project0\LocalGourmet\LocalGourmet.BLL\" +
-                @"Configs\RestaurantsForUnitTest2.json");
-            restaurants = Serializer.Deserialize<List<Restaurant>>(json);
-            return restaurants;
-        }
-
         #region Sort & Search
         public static List<Restaurant> SortByAvgRatingDesc(List<Restaurant> list)
         {
@@ -173,6 +176,64 @@ namespace LocalGourmet.BLL.Models
             return matches;
         }
         #endregion
+
+        #region Display
+        public static void DisplayWithAllInfo(List<Restaurant> list)
+        {
+            foreach (var restaurant in list)
+            {
+                Console.WriteLine(restaurant);
+                Console.WriteLine();
+            }
+        }
+
+        public static void DisplaySummarized(List<Restaurant> list)
+        {
+            foreach (var restaurant in list)
+            {
+                Console.WriteLine(restaurant.GetSummary());
+                Console.WriteLine();
+            }
+        }
+
+        public static void DisplaySummarizedWithReviews(List<Restaurant> list)
+        {
+            foreach (var restaurant in list)
+            {
+                Console.WriteLine(restaurant.GetSummary());
+                Console.WriteLine();
+                List<Review> reviews = restaurant.Reviews;
+                foreach (var r in reviews)
+                {
+                    Console.WriteLine(r);
+                }
+                Console.WriteLine();
+                Console.WriteLine("*********************************************");
+                Console.WriteLine("*********************************************");
+                Console.WriteLine();
+                Console.WriteLine();
+            }
+        }
+
+        public static void DisplayAllInfoWithReviews(List<Restaurant> list)
+        {
+            foreach (var restaurant in list)
+            {
+                Console.WriteLine(restaurant);
+                Console.WriteLine();
+                List<Review> reviews = restaurant.Reviews;
+                foreach (var r in reviews)
+                {
+                    Console.WriteLine(r);
+                }
+                Console.WriteLine();
+                Console.WriteLine("*********************************************");
+                Console.WriteLine("*********************************************");
+                Console.WriteLine();
+                Console.WriteLine();
+            }
+        }
+    #endregion 
 
         #region ToString
         // Return name and rating only
