@@ -143,6 +143,7 @@ namespace LocalGourmet.PL
                 Console.WriteLine("-----------------------------------------------------------------");
                 Console.WriteLine("-----------------------------------------------------------------");
                 Console.WriteLine();
+
                 // Perform command
                 switch (howMuchInfo)
                 {
@@ -150,13 +151,13 @@ namespace LocalGourmet.PL
                         switch (ordering)
                         {
                             case "name":
-                                DisplayWithAllInfo(Restaurant.SortByNameAsc(restaurantsTemp));
+                                Restaurant.DisplayWithAllInfo(Restaurant.SortByNameAsc(restaurantsTemp));
                                 break;
                             case "cuisine":
-                                DisplayWithAllInfo(Restaurant.SortByCuisineAsc(restaurantsTemp));
+                                Restaurant.DisplayWithAllInfo(Restaurant.SortByCuisineAsc(restaurantsTemp));
                                 break;
                             case "rating":
-                                DisplayWithAllInfo(Restaurant.SortByAvgRatingDesc(restaurantsTemp));
+                                Restaurant.DisplayWithAllInfo(Restaurant.SortByAvgRatingDesc(restaurantsTemp));
                                 break;
                         }
                         break;
@@ -164,13 +165,13 @@ namespace LocalGourmet.PL
                         switch (ordering)
                         {
                             case "name":
-                                DisplayAllInfoWithReviews(Restaurant.SortByNameAsc(restaurantsTemp));
+                                Restaurant.DisplayAllInfoWithReviews(Restaurant.SortByNameAsc(restaurantsTemp));
                                 break;
                             case "cuisine":
-                                DisplayAllInfoWithReviews(Restaurant.SortByCuisineAsc(restaurantsTemp));
+                                Restaurant.DisplayAllInfoWithReviews(Restaurant.SortByCuisineAsc(restaurantsTemp));
                                 break;
                             case "rating":
-                                DisplayAllInfoWithReviews(Restaurant.SortByAvgRatingDesc(restaurantsTemp));
+                                Restaurant.DisplayAllInfoWithReviews(Restaurant.SortByAvgRatingDesc(restaurantsTemp));
                                 break;
                         }
                         break;
@@ -178,13 +179,13 @@ namespace LocalGourmet.PL
                         switch (ordering)
                         {
                             case "name":
-                                DisplaySummarized(Restaurant.SortByNameAsc(restaurantsTemp));
+                                Restaurant.DisplaySummarized(Restaurant.SortByNameAsc(restaurantsTemp));
                                 break;
                             case "cuisine":
-                                DisplaySummarized(Restaurant.SortByCuisineAsc(restaurantsTemp));
+                                Restaurant.DisplaySummarized(Restaurant.SortByCuisineAsc(restaurantsTemp));
                                 break;
                             case "rating":
-                                DisplaySummarized(Restaurant.SortByAvgRatingDesc(restaurantsTemp));
+                                Restaurant.DisplaySummarized(Restaurant.SortByAvgRatingDesc(restaurantsTemp));
                                 break;
                         }
                         break;
@@ -192,13 +193,13 @@ namespace LocalGourmet.PL
                         switch (ordering)
                         {
                             case "name":
-                                DisplaySummarizedWithReviews(Restaurant.SortByNameAsc(restaurantsTemp));
+                                Restaurant.DisplaySummarizedWithReviews(Restaurant.SortByNameAsc(restaurantsTemp));
                                 break;
                             case "cuisine":
-                                DisplaySummarizedWithReviews(Restaurant.SortByCuisineAsc(restaurantsTemp));
+                                Restaurant.DisplaySummarizedWithReviews(Restaurant.SortByCuisineAsc(restaurantsTemp));
                                 break;
                             case "rating":
-                                DisplaySummarizedWithReviews(Restaurant.SortByAvgRatingDesc(restaurantsTemp));
+                                Restaurant.DisplaySummarizedWithReviews(Restaurant.SortByAvgRatingDesc(restaurantsTemp));
                                 break;
                         }
                         break;

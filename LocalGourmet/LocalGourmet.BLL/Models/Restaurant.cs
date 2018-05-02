@@ -178,6 +178,9 @@ namespace LocalGourmet.BLL.Models
         #endregion
 
         #region Display
+        public delegate List<Restaurant> SortDel(List<Restaurant> list);
+        public delegate void DisplayDel(SortDel sortDel, List<Restaurant> list);
+
         public static void DisplayWithAllInfo(List<Restaurant> list)
         {
             foreach (var restaurant in list)
